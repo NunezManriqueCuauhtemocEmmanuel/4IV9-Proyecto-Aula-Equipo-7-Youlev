@@ -131,6 +131,7 @@ body{
     transform: scale(1.2);
     animation: rotatel 1000ms 1;
     color: rgb(18, 28, 53);
+    
 }
 /**slider**/
 #hip{
