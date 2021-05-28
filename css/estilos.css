@@ -2,6 +2,10 @@
     font-family: 'happy';
     src: url(../fuentes/Zeniq.ttf);
 }
+#titulo{
+    font-family: 'happy';
+    color:white;
+}
 
 #full{
     font-family: 'happy';
@@ -42,4 +46,8 @@
 }
 #loled{
     text-align: center;
+}
+#ino{
+    font-family: 'happy';
+    color: white;
 }
