@@ -556,6 +556,7 @@ textarea{
         transform: scale(2);
     }
 }
+
 /**Ajuste de pantalla**/
 @media (max-width: 900px) {
     body {
@@ -670,5 +671,44 @@ textarea{
  
     .contenido-slider > div{
          width: 80%;
+    }
+}
+@media (max-width: 400px) {
+    form {
+        font-family: 'Lobster', cursive;
+        background: rgba(75, 124, 170, 0.4);
+        width: 300px;
+        margin: auto;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+    input, textarea{
+        font-family: 'Lobster', cursive;
+        margin-top: 10px;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 7px;
+        box-sizing: border-box;
+        border: none;
+        border-radius: 10px;
+    }
+    input:hover{
+        transform: translateY(-3px);
+        animation: shadow-pulse 1000ms 1;
+    }
+    textarea:hover{
+        font-family: 'Lobster', cursive;
+        transform: translateY(-3px);
+        animation: shadow-pulse 1000ms 1;
+    }
+    textarea{
+        min-height: 100px;
+        max-height: 300px;
+        min-width: 100%;
+        max-width: 100%;
+    }
+    .formulario{
+        margin-top: 10px;
     }
 }
