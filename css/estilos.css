@@ -21,9 +21,10 @@
 }
 #con{
     font-family: 'happy';
-    font-size: 48px;
+    font-size: 24px;
     text-align: center;
     color: white;
+    padding: 20px;
 }
 #intro{
     font-family: 'happy';
