@@ -5,7 +5,7 @@
     list-style: none; 
 }
 body{
-    background-image: linear-gradient(to top, rgb(18, 28, 53), rgb(37, 55, 102));
+    background-image: linear-gradient(to top, rgb(18, 28, 53), rgb(64, 91, 155));
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -68,22 +68,83 @@ body{
 }
 h1{
     font-size: 80px;
-    margin-top: 200px;
+    margin-top: 80px;
     text-align: center;
 }
 .home{
     padding-left: 40px;
     padding-right: 40px;
-    margin-top: 100px;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+}
+.homeim{
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.homeim img{
+    border-radius: 30px;
+    width: 100%;
+}
+.btn {
+    width: 300px;
+    flex-wrap: wrap;
+    text-align: center;
+    line-height: 35px;
+    position: relative;
+    display: inline-block;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background-color: rgb(27, 39, 71);
+    color: #fff;
+    overflow: hidden;
+    transition: all 500ms ease;
+    margin-top: 12px;
+    z-index: 0;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 30px;
+    padding: 30px;
+}
+.btn:hover{
+    background-color: rgb(57, 85, 156);
+}
+.btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    background-color: #208be2;
+    transition: all 500ms ease;
+    z-index: -1;
+}
+.btn--4::before {
+  color: white;
+  left: -820px;
+  right: 0;
+  width: 100%;
+  height: 150%;
+  transition: all 1200ms ease;
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px #208be2, 0 0 20px #208be2, 0 0 20px #208be2;
+}
+.btn--4:hover::before {
+    color: white;
+    left: 520px;
 }
 .in-flex-1{
     margin: 10px;
     flex-wrap: wrap;
     text-align: center;
     flex: 1;
-    padding: 25px;
+    padding: 20px;
     background: rgba(119, 119, 119, 0.685);
     border-radius: 20px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -96,6 +157,17 @@ h1{
 .in-flex-1 img{
     margin-top: 10px;
     border-radius: 10px;
+}
+@keyframes rotatel{
+    0%{
+        filter: hue-rotate(0deg);
+        color:#208be2 
+    }
+    100%{
+        filter: hue-rotate(360deg);
+        bcolor:#208be2
+
+    }
 }
 @media (max-width: 400px){
     h1{
@@ -120,7 +192,25 @@ h1{
         margin-top: 10px;
         border-radius: 10px;
     }
-    .in-flex-1 p{
-        font-size: 16px;
+    .btn {
+        width: 200px;
+        font-size: 12px;
+        flex-wrap: wrap;
+        text-align: center;
+        line-height: 35px;
+        position: relative;
+        display: inline-block;
+        border-radius: 4px;
+        text-transform: uppercase;
+        background-color: #19212e;
+        color: #fff;
+        overflow: hidden;
+        transition: all 500ms ease;
+        margin-top: 12px;
+        z-index: 0;
+        font-weight: 700;
+        cursor: pointer;
+        margin: 30px;
+        padding: 30px;
     }
 }
