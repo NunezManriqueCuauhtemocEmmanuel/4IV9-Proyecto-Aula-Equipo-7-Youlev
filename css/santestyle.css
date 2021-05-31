@@ -5,7 +5,7 @@
     list-style: none; 
 }
 body{
-    background-image: linear-gradient(to top, rgb(18, 28, 53), rgb(64, 91, 155));
+    background-image: linear-gradient(to top, rgb(8, 9, 12), rgb(31, 39, 60));
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -82,16 +82,18 @@ h1{
 .homeim{
     padding-left: 40px;
     padding-right: 40px;
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
 
 }
 .homeim img{
+    text-align: center;
     border-radius: 30px;
     width: 100%;
 }
 .btn {
+    font-size: 12px;
     width: 300px;
     flex-wrap: wrap;
     text-align: center;
@@ -104,15 +106,17 @@ h1{
     color: #fff;
     overflow: hidden;
     transition: all 500ms ease;
-    margin-top: 12px;
     z-index: 0;
     font-weight: 700;
     cursor: pointer;
-    margin: 30px;
-    padding: 30px;
+    margin: 20px;
+    padding: 5px;
 }
 .btn:hover{
     background-color: rgb(57, 85, 156);
+}
+.btn a{
+    color: #fff;
 }
 .btn::before {
     content: "";
@@ -139,25 +143,7 @@ h1{
     color: white;
     left: 520px;
 }
-.in-flex-1{
-    margin: 10px;
-    flex-wrap: wrap;
-    text-align: center;
-    flex: 1;
-    padding: 20px;
-    background: rgba(119, 119, 119, 0.685);
-    border-radius: 20px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-.in-flex-1 div{
-    color: white;
-    flex-wrap: wrap;
-    margin:10px;
-}
-.in-flex-1 img{
-    margin-top: 10px;
-    border-radius: 10px;
-}
+
 @keyframes rotatel{
     0%{
         filter: hue-rotate(0deg);
@@ -194,7 +180,7 @@ h1{
     }
     .btn {
         width: 200px;
-        font-size: 12px;
+        font-size: 10px;
         flex-wrap: wrap;
         text-align: center;
         line-height: 35px;
@@ -202,7 +188,7 @@ h1{
         display: inline-block;
         border-radius: 4px;
         text-transform: uppercase;
-        background-color: #19212e;
+        background-color: rgb(27, 39, 71);
         color: #fff;
         overflow: hidden;
         transition: all 500ms ease;
@@ -211,6 +197,6 @@ h1{
         font-weight: 700;
         cursor: pointer;
         margin: 30px;
-        padding: 30px;
+        padding: 5px;
     }
 }
