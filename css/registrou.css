@@ -11,7 +11,7 @@ body{
     background-attachment: fixed;
 }
 .header {
-    background-color: rgb(21, 17, 29);
+    background-color: rgb(18, 28, 53);
     height: 60px;
     position: fixed;
     width: 100%;
@@ -76,6 +76,7 @@ h2{
     margin: 20px;
 }
 form{
+    border: 2px solid white;
     /*background: rgba(75, 124, 170, 0.4);*/
     background: rgba(0, 0, 0, 0.712);
     width: 500px;
@@ -107,7 +108,6 @@ input{
     text-align: center;
     padding: 10px;
     border-radius: 20px;
-    color: white;
 }
 .contenedor-inputs select{
     margin-top: 10px;
@@ -215,17 +215,6 @@ input{
     left: 520px;
 }
 
-@keyframes rotatel{
-    0%{
-        filter: hue-rotate(0deg);
-        color:#208be2 
-    }
-    100%{
-        filter: hue-rotate(360deg);
-        bcolor:#208be2
-
-    }
-}
 @media (max-width: 400px){
     h1{
         font-size: 36px;
