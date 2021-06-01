@@ -1,0 +1,53 @@
+@font-face{
+    font-family: 'happy';
+    src: url(../fuentes/Zeniq.ttf);
+}
+#titulo{
+    font-family: 'happy';
+    color:white;
+}
+
+#full{
+    font-family: 'happy';
+    font-size: 12px;
+}
+#hip{
+    font-family: 'happy';
+    font-size: 80px;
+    text-align: center;
+    color: white;
+}
+#sub{
+    font-family: 'happy';
+    text-align: center;
+}
+#con{
+    font-family: 'happy';
+    font-size: 24px;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+#intro{
+    font-family: 'happy';
+    font-size: 24px;
+    color: white;
+}
+#val{
+    font-family: 'happy';
+    font-size: 24px;
+    color: white;
+}
+#tipes{
+    font-family: 'happy';
+    font-size: 48px;
+    text-align: center;
+    color: white;
+}
+#loled{
+    text-align: center;
+}
+#ino{
+    font-family: 'happy';
+    color: white;
+}
