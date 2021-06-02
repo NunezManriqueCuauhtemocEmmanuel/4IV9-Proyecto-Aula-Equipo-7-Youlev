@@ -11,6 +11,7 @@ body{
     background-attachment: fixed;
 }
 .header {
+    transition: all 500ms ease;
     background-color: rgb(18, 28, 53);
     height: 60px;
     position: fixed;
@@ -28,10 +29,11 @@ body{
 }
   
 .logo {
+    transition: all 500ms ease;
     text-align: center;
     color: white;
     font-family: 'happy';
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
     line-height: 60px;
 }
@@ -67,6 +69,7 @@ body{
     display: none;
 }
 h1{
+    transition: all 500ms ease;
     font-size: 50px;
     margin-top: 80px;
     text-align: center;
@@ -74,9 +77,13 @@ h1{
 h2{
     text-align: center;
     margin: 20px;
+    transition: all 500ms ease;
 }
 form{
-    border: 2px solid white;
+    color: #fff;
+    box-shadow: 7px 14px 37px #000;
+    transition: all 500ms ease;
+    border-top: 4px solid #017bab;
     /*background: rgba(75, 124, 170, 0.4);*/
     background: rgba(0, 0, 0, 0.712);
     width: 500px;
@@ -86,8 +93,9 @@ form{
     border-radius: 10px;
 }
 form select{
-    color: black;
-    background-color: #81c1e9;
+    color: white;
+    background: #252323;
+    border: 1px solid #017bab;
 }
 h3{
     text-align: center;
@@ -103,15 +111,15 @@ label{
     margin-top: 10px;
 }
 input{
-    background-color: #81c1e9;
+    color: white;
+    background: #252323;
     margin-top: 10px;
     text-align: center;
     padding: 10px;
-    border-radius: 20px;
+    border: 1px solid #017bab;
 }
 .contenedor-inputs select{
     margin-top: 10px;
-    border-radius: 10px;
     padding: 10px;
 }
 .home{
