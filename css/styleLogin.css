@@ -137,7 +137,6 @@ h2{
     background: rgba(0, 0, 0, 0.733);
     margin: auto;
     margin-top: 60px;
-    background-image: linear-gradient(to top, rgb(7, 19, 43), rgb(179, 214, 243));
 }
 
 .form-login h5 {
