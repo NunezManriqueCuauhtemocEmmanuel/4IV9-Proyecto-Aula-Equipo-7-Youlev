@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Basic Line Chart</title>
+    <link rel="stylesheet" href="./css/textos.css">
+    
+    <link rel="stylesheet" href="./css/graficaestilo.css">
+
+    <style>
+      
+        #chart {
+      max-width: 1650px;
+      margin: 35px auto;
+    }
+    #chart2 {
+      max-width: 1650px;
+      margin: 35px auto;
+    }
+    #chart3 {
+      max-width: 1650px;
+      margin: 35px auto;
+    }
+    #chart4 {
+      max-width: 1650px;
+      margin: 35px auto;
+    }
+    #chart5 {
+      max-width: 1650px;
+      margin: 35px auto;
+    }
+
+    p{
+      align-self: center;
+    }
+
+      
+    </style>
+
+    <script>
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+        )
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+        )
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+        )
+    </script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
+
+    <script>
+      // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
+      // Based on https://gist.github.com/blixt/f17b47c62508be59987b
+      var _seed = 42;
+      Math.random = function() {
+        _seed = _seed * 16807 % 2147483647;
+        return (_seed - 1) / 2147483646;
+      };
+    </script>
+
+    
+  </head>
+
+  <body>
+     <div id="chart"></div>
+     <div id="chart2"></div>
+     <div id="chart3"></div>
+     <div id="chart4"></div>
+     <div id="chart5"></div>
+     
+
+    <script>
+      
+      var options = {
+          series: [
+          {
+            name: "2019",
+            data: [371162, 969661, 211462, 173328, 1186019, 228431, 338503]
+          },
+          {
+            name: "2007",
+            data: [160786, 495194, 102251, 103278, 577578, 110998, 261681]
+          }
+        ],
+          chart: {
+          height: 360,
+          type: 'line',
+          dropShadow: {
+            enabled: true,
+            color: '#000',
+            top: 18,
+            left: 7,
+            blur: 10,
+            opacity: 0.2
+          },
+          toolbar: {
+            show: false
+          }
+        },
+        colors: ['#77B6EA', '#545454'],
+        dataLabels: {
+          enabled: true,
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+        title: {
+          text: 'Casos de desnutricion',
+          align: 'left'
+        },
+        grid: {
+          borderColor: '#e7e7e7',
+          row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+          },
+        },
+        markers: {
+          size: 1
+        },
+        xaxis: {
+          categories: ['     Aguascalientes', '     Baja California', '     Baja California Sur', '     Campeche', '     Coahuila ', '     Colima', '     Chiapas', '     Chihuahua', '     D.F. Sur', '     Durango', '     Guanajuato', '     Guerrero', '     Hidalgo', '     Jalisco', '     Mexico Oriente', '     Mexico Poniente', '     Michoacan', '     Morelos', '     Nayarit', '     Nuevo Leon', '     Oaxaca', '     Puebla', '     Queretaro', '     Quintana Roo', '     San Luis Potosi', '     Sinaloa'],
+          title: {
+            text: 'Mes'
+          }
+        },
+        yaxis: {
+          title: {
+            text: 'Casos'
+          },
+          min: 5,
+          max: 2350000
+        },
+        legend: {
+          position: 'top',
+          horizontalAlign: 'right',
+          floating: true,
+          offsetY: -25,
+          offsetX: -5
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+      
+      
+      
+    </script>
+    
+    <script>
+      
+      var options1 = {
+          series: [
+          {
+            name: "2019",
+            data: [ 760301, 1542012, 1169674, 460626, 640002, 308413, 328363]
+          },
+          {
+            name: "2007",
+            data: [ 563832, 573678, 670211, 214309, 748669, 392546, 168232]
+          }
+        ],
+          chart: {
+          height: 360,
+          type: 'line',
+          dropShadow: {
+            enabled: true,
+            color: '#000',
+            top: 18,
+            left: 7,
+            blur: 10,
+            opacity: 0.2
+          },
+          toolbar: {
+            show: false
+          }
+        },
+        colors: ['#77B6EA', '#545454'],
+        dataLabels: {
+          enabled: true,
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+        title: {
+          text: 'Casos de desnutricion',
+          align: 'left'
+        },
+        grid: {
+          borderColor: '#e7e7e7',
+          row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+          },
+        },
+        markers: {
+          size: 1
+        },
+        xaxis: {
+          categories: ['     Chihuahua', '     D.F. Norte', '     D.F. Sur', '     Durango', '     Guanajuato', '     Guerrero', '     Hidalgo'],
+          title: {
+            text: 'Mes'
+          }
+        },
+        yaxis: {
+          title: {
+            text: 'Casos'
+          },
+          min: 5,
+          max: 2350000
+        },
+        legend: {
+          position: 'top',
+          horizontalAlign: 'right',
+          floating: true,
+          offsetY: -25,
+          offsetX: -5
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart2"), options1);
+        chart.render();
+      
+      
+      
+    </script>
+
+<script>
+      
+  var options1 = {
+      series: [
+      {
+        name: "2019",
+        data: [ 2084596, 1531319, 944750, 537562, 319816, 214433, 2301458]
+      },
+      {
+        name: "2007",
+        data: [ 1012801, 928009, 458290, 402492, 185097, 189482, 589717]
+      }
+    ],
+      chart: {
+      height: 360,
+      type: 'line',
+      dropShadow: {
+        enabled: true,
+        color: '#000',
+        top: 18,
+        left: 7,
+        blur: 10,
+        opacity: 0.2
+      },
+      toolbar: {
+        show: false
+      }
+    },
+    colors: ['#77B6EA', '#545454'],
+    dataLabels: {
+      enabled: true,
+    },
+    stroke: {
+      curve: 'smooth'
+    },
+    title: {
+      text: 'Casos de desnutricion',
+      align: 'left'
+    },
+    grid: {
+      borderColor: '#e7e7e7',
+      row: {
+        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+        opacity: 0.5
+      },
+    },
+    markers: {
+      size: 1
+    },
+    xaxis: {
+      categories: ['     Jalisco', '     Mexico Oriente', '     Mexico Poniente', '     Michoacan', '     Morelos', '     Nayarit', '     Nuevo Leon'],
+      title: {
+        text: 'Mes'
+      }
+    },
+    yaxis: {
+      title: {
+        text: 'Casos'
+      },
+      min: 5,
+      max: 2350000
+    },
+    legend: {
+      position: 'top',
+      horizontalAlign: 'right',
+      floating: true,
+      offsetY: -25,
+      offsetX: -5
+    }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart3"), options1);
+    chart.render();
+  
+  
+  
+</script>
+    
+<script>
+      
+  var options2 = {
+      series: [
+      {
+        name: "2019",
+        data: [  272912, 878694, 378436, 340380, 566957, 774146, 730651]
+      },
+      {
+        name: "2007",
+        data: [ 141377, 351133, 227452, 252473, 310570, 362101, 423009]
+      }
+    ],
+      chart: {
+      height: 360,
+      type: 'line',
+      dropShadow: {
+        enabled: true,
+        color: '#000',
+        top: 18,
+        left: 7,
+        blur: 10,
+        opacity: 0.2
+      },
+      toolbar: {
+        show: false
+      }
+    },
+    colors: ['#77B6EA', '#545454'],
+    dataLabels: {
+      enabled: true,
+    },
+    stroke: {
+      curve: 'smooth'
+    },
+    title: {
+      text: 'Casos de desnutricion',
+      align: 'left'
+    },
+    grid: {
+      borderColor: '#e7e7e7',
+      row: {
+        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+        opacity: 0.5
+      },
+    },
+    markers: {
+      size: 1
+    },
+    xaxis: {
+      categories: ['     Oaxaca', '     Puebla', '     Queretaro', '     Quintana Roo', '     San Luis Potosi', '     Sinaloa', '     Sonora'],
+      title: {
+        text: 'Mes'
+      }
+    },
+    yaxis: {
+      title: {
+        text: 'Casos'
+      },
+      min: 5,
+      max: 2350000
+    },
+    legend: {
+      position: 'top',
+      horizontalAlign: 'right',
+      floating: true,
+      offsetY: -25,
+      offsetX: -5
+    }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart4"), options2);
+    chart.render();
+  
+  
+  
+</script>
+
+<script>
+      
+  var options2 = {
+      series: [
+      {
+        name: "2019",
+        data: [   307545, 924447, 183673, 885086, 369728, 463133, 123209]
+      },
+      {
+        name: "2007",
+        data: [ 174218, 479517, 121306, 512296, 322996, 294828, 107880]
+      }
+    ],
+      chart: {
+      height: 360,
+      type: 'line',
+      dropShadow: {
+        enabled: true,
+        color: '#000',
+        top: 18,
+        left: 7,
+        blur: 10,
+        opacity: 0.2
+      },
+      toolbar: {
+        show: false
+      }
+    },
+    colors: ['#77B6EA', '#545454'],
+    dataLabels: {
+      enabled: true,
+    },
+    stroke: {
+      curve: 'smooth'
+    },
+    title: {
+      text: 'Casos de desnutricion',
+      align: 'left'
+    },
+    grid: {
+      borderColor: '#e7e7e7',
+      row: {
+        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+        opacity: 0.5
+      },
+    },
+    markers: {
+      size: 1
+    },
+    xaxis: {
+      categories: ['     Tabasco', '     Tamaulipas', '     Tlaxcala', '     Veracruz Norte', '     Veracruz Sur', '     Yucatan', '     Zacatecas'],
+      title: {
+        text: 'Mes'
+      }
+    },
+    yaxis: {
+      title: {
+        text: 'Casos'
+      },
+      min: 5,
+      max: 2350000
+    },
+    legend: {
+      position: 'top',
+      horizontalAlign: 'right',
+      floating: true,
+      offsetY: -25,
+      offsetX: -5
+    }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart5"), options2);
+    chart.render();
+  
+  
+  
+</script>
+
+<p class="texto"> Casos totales de desnutricion por estado 2007-2019</p>
+
+<div id="chart6"></div>
+  <script>
+    var options = {
+          series: [4805788, 12404905, 2739498, 2485662, 12693847, 2870425, 4616053, 11253519, 17168876, 17319357, 5498021, 11144673, 5269280, 3929974, 24454918, 22730568, 10958448, 7644585, 4104956, 3270914, 23022672, 3401703, 10512493, 4770506, 4065361, 7057535, 9420263, 9839400, 3661623, 11858808, 2330302, 9972309, 5777233, 6091622, 1968800],
+          chart: {
+          type: 'polarArea',
+        },
+        stroke: {
+          colors: ['#fff']
+        },
+        fill: {
+          opacity: 0.8
+        },
+        responsive: [{
+          breakpoint: 380,
+          options: {
+            chart: {
+              width: 100
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }]
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart6"), options);
+        chart.render();
+  </script>
+    
+  </body>
+</html>
