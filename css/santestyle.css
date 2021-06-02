@@ -12,15 +12,18 @@ body{
     background-attachment: fixed;
 }
 .header {
+    transition: all 500ms ease;
     background-color: rgb(18, 28, 53);
     height: 60px;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
+    transition: all 500ms ease;
     
 }
 .nav {
+    transition: all 500ms ease;
     text-align: center;
     display: flex;
     justify-content: space-between;
@@ -29,10 +32,11 @@ body{
 }
   
 .logo {
+    transition: all 500ms ease;
     text-align: center;
     color: white;
     font-family: 'happy';
-    font-size: 30px;
+    font-size: 24px;
     font-weight: bold;
     line-height: 60px;
 }
@@ -114,6 +118,7 @@ h1{
     padding: 5px;
 }
 .btn:hover{
+    transition: all 500ms ease;
     background-color: rgb(57, 85, 156);
 }
 .btn a{

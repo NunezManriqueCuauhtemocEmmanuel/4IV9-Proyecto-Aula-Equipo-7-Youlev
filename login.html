@@ -4,19 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/styleLogin.css">
     <title>Login</title>
+    <link rel="stylesheet" href="./css/styleLogin.css">
+    <link href="./css/estilos.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <header class="header">
+        <nav class="nav">
+          <a href="#" class="logo nav-link">Santé et vie</a>
+          <button class="nav-toggle" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-menu">
+            <li id="full" class="btn btn--4">
+              <a href="./sante.html" class="nav-menu-link">Inicio</a>
+            </li>
+          </ul>
+        </nav>
+    </header>
+    <h1 id="titulo">Santé et vie</h1>
     <section class="form-login">
-    <h5>Iniciar Sesión</h5>
-    <input class="controls" type="text" name="usuario" value="" placeholder="Usuario">
-    <input class="controls" type="password" name="pass" value="" placeholder="Contraseña">
-    <input class="buttons" type="submit" name="" value="Ingresar">
-    <p><a href="#">¿Olvidaste tu Contraseña?</a></p>
+        <h5>Iniciar Sesión</h5>
+        <input class="controls" type="text" name="usuario" value="" placeholder="Usuario">
+        <input class="controls" type="password" name="pass" value="" placeholder="Contraseña">
+        <input class="buttons" type="submit" name="" value="Ingresar">
+        <p><a href="#">¿Olvidaste tu Contraseña?</a></p>
     </section>
 </body>
-<footer>
-    
-</footer>
 </html>
