@@ -105,6 +105,7 @@ body {
     z-index: -1;
 }
 .btn--4::before {
+    
   color: white;
   left: -520px;
   right: 0;
@@ -133,7 +134,7 @@ h2{
     transition: all 500ms ease;
     width: 400px;
     height: 340px;
-    background: rgba(0, 0, 0, 0.712);
+    background: rgba(0, 0, 0, 0.733);
     margin: auto;
     margin-top: 60px;
     background-image: linear-gradient(to top, rgb(7, 19, 43), rgb(179, 214, 243));
