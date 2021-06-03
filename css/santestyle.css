@@ -87,10 +87,8 @@ h1{
 .homeim{
     padding-left: 40px;
     padding-right: 40px;
-    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
-
 }
 .homeim img{
     text-align: center;
@@ -114,7 +112,7 @@ h1{
     z-index: 0;
     font-weight: 700;
     cursor: pointer;
-    margin: 20px;
+    margin: 5px;
     padding: 5px;
 }
 .btn:hover{

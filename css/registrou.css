@@ -3,6 +3,7 @@
     margin: 0;
     text-decoration: none;
     list-style: none; 
+    box-sizing: border-box;
 }
 body{
     background-image: linear-gradient(to top, rgb(9, 12, 20), rgb(53, 69, 112));
@@ -76,7 +77,7 @@ h1{
 }
 h2{
     text-align: center;
-    margin: 20px;
+    margin: 30px;
     transition: all 500ms ease;
 }
 form{
@@ -86,16 +87,21 @@ form{
     border-top: 4px solid #017bab;
     /*background: rgba(75, 124, 170, 0.4);*/
     background: rgba(0, 0, 0, 0.712);
-    width: 500px;
+    width: 600px;
     margin: auto;
     padding: 10px 20px;
     box-sizing: border-box;
     border-radius: 10px;
 }
 form select{
+    font-family: arial;
     color: white;
     background: #252323;
     border: 1px solid #017bab;
+}
+form select:hover{
+    transition: all 500ms ease;
+    transform: scale(1.2);
 }
 h3{
     text-align: center;
@@ -111,6 +117,7 @@ label{
     margin-top: 10px;
 }
 input{
+    font-family: arial;
     color: white;
     background: #252323;
     margin-top: 10px;
@@ -118,9 +125,28 @@ input{
     padding: 10px;
     border: 1px solid #017bab;
 }
+input:hover{
+    transition: all 500ms ease;
+    transform: scale(1.2);
+}
 .contenedor-inputs select{
     margin-top: 10px;
     padding: 10px;
+}
+.buttons {
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    background: rgb(15, 32, 73);
+    border: none;
+    color: white;
+    margin-bottom: 16px;
+}
+.buttons:hover{
+    transform: scale(1.1);
+    animation: shadow-pulsef 1200ms 1;
+    transition: all 700ms ease;
+    background: #208be2;
 }
 .home{
     padding-left: 40px;
@@ -172,30 +198,26 @@ input{
     border-radius: 10px;
 }
 .btn {
-    font-size: 12px;
-    width: 300px;
-    flex-wrap: wrap;
     text-align: center;
     line-height: 35px;
     position: relative;
     display: inline-block;
+    height: 35px;
+    width: 130px;
     border-radius: 4px;
     text-transform: uppercase;
-    background-color: rgb(27, 39, 71);
+    background-color: transparent;
     color: #fff;
     overflow: hidden;
     transition: all 500ms ease;
+    margin-top: 12px;
     z-index: 0;
     font-weight: 700;
     cursor: pointer;
-    margin: 20px;
-    padding: 5px;
+    margin-left: 10px;
 }
 .btn:hover{
-    background-color: rgb(57, 85, 156);
-}
-.btn a{
-    color: #fff;
+    background-color: rgb(32, 45, 78);
 }
 .btn::before {
     content: "";
@@ -210,7 +232,7 @@ input{
 }
 .btn--4::before {
   color: white;
-  left: -820px;
+  left: -520px;
   right: 0;
   width: 100%;
   height: 150%;
@@ -267,8 +289,15 @@ input{
         padding: 5px;
     }
 }
-
-@media (max-width: 580px) {
+@keyframes shadow-pulsef {
+    0%{
+        box-shadow: 0 0 0 0 #208be2c7;
+    }
+    100%{
+        box-shadow: 0 0 16px 24px rgba(57, 132, 182, 0);
+    }
+}
+@media (max-width: 680px) {
     form {
         width: 100%;
     }

@@ -149,7 +149,7 @@ body{
 
 .contenido-slider{
     /**background: rgb(116, 116, 116);**/
-    background-image: linear-gradient(to top, rgb(44, 44, 44), rgb(70, 31, 177));
+    background-image: linear-gradient(to top, rgb(9, 12, 20), rgb(53, 69, 112));
     margin-top: 20px;
     width: 100%;
     height: 600px;
@@ -164,14 +164,14 @@ body{
 
 .contenido-slider:nth-child(2){
     /**background: rgb(0, 0, 0);**/
-    background-image: linear-gradient(to top, rgb(44, 44, 44), rgb(70, 31, 177));
+    background-image: linear-gradient(to top, rgb(9, 12, 20), rgb(53, 69, 112));
     color: #fff;
     /**border-radius: 50px;**/
 }
 
 .contenido-slider:nth-child(3){
     /**background: rgb(0, 0, 0);**/
-    background-image: linear-gradient(to top, rgb(44, 44, 44), rgb(70, 31, 177));
+    background-image: linear-gradient(to top, rgb(9, 12, 20), rgb(53, 69, 112));
     color: #fff;
     /**border-radius: 50px;**/
 }
