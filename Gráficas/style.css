@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { 
+    font-family: arial;
+    background-image: linear-gradient(to top, rgb(151, 5, 24), rgb(97, 7, 19));
+}
+
+.buttons{
+    width: 50%;
+    height: 40px;
+    background: #017bab;
+    border: none;
+    color: white;
+    margin-top: 15%;
+    margin-bottom: auto;
+    margin-left: 310px;
+    margin-right: 320px;
+}
+
+div .graph{
+    height: 300px;
+}
