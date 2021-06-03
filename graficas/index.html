@@ -4,15 +4,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Basic Line Chart</title>
+    <link href="../css/estilos.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="./css/textos.css">
-    
     <link rel="stylesheet" href="./css/graficaestilo.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a78d4ea77b.js" crossorigin="anonymous"></script>
+    <script src="../js/main.js"></script>
 
     <style>
       
-        #chart {
+    #chart {
       max-width: 1650px;
-      margin: 35px auto;
+      margin: 80px auto;
     }
     #chart2 {
       max-width: 1650px;
@@ -71,6 +76,31 @@
   </head>
 
   <body>
+    <header class="header">
+        <nav class="nav">
+          <a href="#" class="logo nav-link">Youlev</a>
+          <button class="nav-toggle" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-menu">
+            <li id="full" class="btn btn--4">
+              <a href="./index.html" class="nav-menu-link">Inicio</a>
+            </li>
+            <li id="full" class="btn btn--4">
+              <a href="./conocenos.html" class="nav-menu-link">conocenos</a>
+            </li>
+            <li id="full" class="btn btn--4">
+              <a href="./productos.html" class="nav-menu-link">servicios</a>
+            </li>
+            <li id="full" class="btn btn--4">
+              <a href="./casos_exito.html" class="nav-menu-link">Casos de exito</a>
+            </li>
+            <li id="full" class="btn btn--4">
+                <a href="./sante.html" class="nav-menu-link">SANTÉ ET VIE</a>
+              </li>
+          </ul>
+        </nav>
+    </header>
      <div id="chart"></div>
      <div id="chart2"></div>
      <div id="chart3"></div>
