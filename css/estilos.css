@@ -6,6 +6,10 @@
     font-family: 'happy';
     color:white;
 }
+#btn-abrir-popup{
+    font-family: 'happy';
+    font-size: 10px;
+}
 
 #full{
     font-family: 'happy';
@@ -15,11 +19,13 @@
     font-family: 'happy';
     font-size: 80px;
     text-align: center;
-    color: white;
+    color: rgb(255, 255, 255);
+    text-shadow: 4px 4px 4px black;
 }
 #sub{
     font-family: 'happy';
     text-align: center;
+    text-shadow: -4px 2px 2px black;
 }
 #con{
     font-family: 'happy';
