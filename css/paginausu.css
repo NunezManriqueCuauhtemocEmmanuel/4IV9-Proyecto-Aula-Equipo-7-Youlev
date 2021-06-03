@@ -346,6 +346,7 @@ h1{
 }
 
 .popup {
+    margin: 10px;
     color: #fff;
     border-top: 10px solid #ffffff;
     border-bottom: 10px solid #ffffff;
