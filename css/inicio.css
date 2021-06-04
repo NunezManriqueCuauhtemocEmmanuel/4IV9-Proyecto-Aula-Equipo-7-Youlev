@@ -120,12 +120,14 @@ body {
     left: 520px;
 }
 h1{
+    color: #fff;
     font-size: 50px;
     margin-top: 120px;
     text-align: center;
     transition: all 500ms ease;
 }
 h2{
+    color: #fff;
     font-size: 36px;
     text-align: center;
     margin: 20px;

@@ -5,7 +5,7 @@
     list-style: none; 
 }
 body{
-    background-image: linear-gradient(to top, rgb(9, 12, 20), rgb(75, 94, 146));
+    background-image: linear-gradient(to top, rgb(80, 80, 80), rgb(255, 255, 255));
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
