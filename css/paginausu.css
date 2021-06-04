@@ -81,7 +81,7 @@ body{
     border-radius: 4px;
     text-transform: uppercase;
     background-color: transparent;
-    color: #fff;
+    color: rgb(255, 255, 255);
     overflow: hidden;
     transition: all 500ms ease;
     margin-top: 12px;
@@ -348,8 +348,8 @@ h1{
 .popup {
     margin: 10px;
     color: #fff;
-    border-top: 10px solid #ffffff;
-    border-bottom: 10px solid #ffffff;
+    border-top: 10px solid #00c3ff;
+    border-bottom: 10px solid #00c3ff;
 	background: rgba(0, 0, 0, 0.932);
 	box-shadow: 0px 0px 8px 12px rgba(255, 255, 255, 0.3);
 	border-radius: 3px;
