@@ -10,6 +10,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a78d4ea77b.js" crossorigin="anonymous"></script>
+    <script src="./js/val.js"></script>
+    <script>
+      function soloLetras(e){
+        key = e.keyCode;
+        tecla = String.fromCharCode(key).toLowerCase();
+        letras = "áéíóúabcdefghijklmnñopqrstuvwxyz";
+        especiales = "8-37-39-46";
+
+        tecla_especial = false
+        for(var i in especiales){
+          if(key == especiales[i]){
+            tecla_especial = true;
+            if(e.keyCode == 13) {window.document.getElementById("nombre").focus()}
+            break;
+          }
+        }
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+          return false;
+        }
+      }
+    </script>
 </head>
 <body>
     <header class="header">
@@ -29,23 +50,23 @@
     <h2 id="titulo">Registro De Usuario</h2>
     <section class="homeim">
       <div class="in-flex-1">
-        <form action="">
+        <form name="formulario" onsubmit="return validar(this)" action="">
           <h3 id="titulo">Crea una cuenta</h3>
           <div class="contenedor-inputs">
             <label id="titulo">Nombre</label>
-            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="nombre" placeholder="Nombre" onkeypress="return soloLetras(event)" required>
             <br>
             <br>
             <label id="titulo">Apellido Paterno</label>
-            <input type="text" name="appa" placeholder="Apellido Paterno" required>
+            <input type="text" name="appa" placeholder="Apellido Paterno" onkeypress="return soloLetras(event)" required>
             <br>
             <br>
             <label id="titulo">Apellido Materno</label>
-            <input type="text" name="apma" placeholder="Apellido Materno" required>
+            <input type="text" name="apma" placeholder="Apellido Materno" onkeypress="return soloLetras(event)" required>
             <br>
             <br>
             <label id="titulo">Fecha de nacimiento</label>
-            <input type="date" name="nacimiento" required>
+            <input type="date" name="fecha" required>
             <br>
             <br>
             <label id="titulo">Sexo</label>
