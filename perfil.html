@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=}, initial-scale=1.0">
-    <title>Inicio Usuario</title>
-    <link href="./css/paginausu.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link href="./css/perfil.css" rel="stylesheet" type="text/css">
     <link href="./css/estilos.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a78d4ea77b.js" crossorigin="anonymous"></script>
@@ -19,6 +19,9 @@
           </button>
           <ul class="nav-menu">
             <li id="full" class="btn btn--4">
+                <a href="./paginausu.html" class="nav-menu-link">Inicio</a>
+            </li>
+            <li id="full" class="btn btn--4">
               <a href="#" class="nav-menu-link">Plan</a>
             </li>
             <li id="btn-abrir-popup" class="btn btn--4">
@@ -27,9 +30,6 @@
             <li id="full" class="btn btn--4">
               <a href="#" class="nav-menu-link">Regimen</a>
             </li>
-            <li id="full" class="btn btn--4">
-              <a href="./perfil.html" class="nav-menu-link">Perfil</a>
-            </li>
             <li>
               <input type="checkbox" name="theme" id="theme">
             </li>
@@ -37,19 +37,22 @@
         </nav>
     </header>
     <h1 id="titulo">Santé et vie</h1>
+    <h3 id="titulo">Perfil</h3>
     <div class="overlay" id="overlay">
 			<div class="popup" id="popup">
 				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
 				<h3>Bienvenido nuevo usuario</h3>
-				<h4>Lee esto antes de empezar</h4>
-				<p>Hola, se bienvenido a Sante et vie, este es un lugar preocupado por tu vida; contamos con especialistas que te ayudarán a mejorar tu salud con planes de alimentacion y planes de ejercicio, te pedimos porfavor ingresar a la ventana de perfil y colocar tus datos medicos que se te pedirán para que tu nutriologo te pueda dar una atencion en base a tu condicion</p>
+				<h4>Conoce esta ventana llamada perfil</h4>
+				<p>Recien acabas de inciar en Sante et vie, te presentamos la ventana "Perfil" encargada de mostrarte tus datos y que puedas modificarlos; recuerdas que al 
+                    principio te pedimos ingresar tus datos medicos, es el momento, con esto el nutriologo que te atendera podra hacer tus servicios de manera eficiente
+                </p>
 			</div>
 		</div>
 	</div>
   <script src="./js/main.js"></script>
   <script src="js/usuarionuevo.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="js/bienvenida.js"></script>
   <script src="js/app.js"></script>
+    
 </body>
 </html>

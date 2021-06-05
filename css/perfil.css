@@ -184,6 +184,12 @@ h1{
     margin-top: 90px;
     text-align: center;
 }
+#titulo{
+    text-align: center;
+}
+h3#titulo{
+    font-size: 36px;
+}
 .home1{
     margin: 55px;
     display: flex;
