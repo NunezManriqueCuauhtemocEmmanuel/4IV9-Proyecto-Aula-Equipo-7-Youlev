@@ -6,14 +6,14 @@
 }
 body{
     /*background-image: linear-gradient(to top, rgb(8, 9, 12), rgb(31, 39, 60));*/
-    background-image: linear-gradient(to top, rgb(9, 12, 20), rgb(53, 69, 112));
+    animation: cambioc 5000ms infinite alternate-reverse;
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 .header {
     transition: all 500ms ease;
-    background-color: rgb(18, 28, 53);
+    background-color: rgb(4, 18, 51);
     height: 60px;
     position: fixed;
     width: 100%;
@@ -214,5 +214,13 @@ h1:hover{
         cursor: pointer;
         margin: 30px;
         padding: 5px;
+    }
+}
+@keyframes cambioc{
+    0%{
+        background:rgb(4, 7, 15);
+    }
+    100%{
+        background: rgb(38, 50, 83);
     }
 }
