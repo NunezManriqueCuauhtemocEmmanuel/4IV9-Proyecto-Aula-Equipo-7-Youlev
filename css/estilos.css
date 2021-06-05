@@ -14,6 +14,10 @@
     font-family: 'happy';
     font-size: 12px;
 }
+#casos{
+    font-family: 'happy';
+    font-size: 10px;
+}
 #hip{
     font-family: 'happy';
     font-size: 80px;
@@ -32,22 +36,26 @@
     text-align: center;
     color: white;
     padding: 20px;
+    text-shadow: 4px 4px 4px black;
 }
 #intro{
     font-family: 'happy';
     font-size: 24px;
     color: white;
+    text-shadow: 4px 4px 4px black;
 }
 #val{
     font-family: 'happy';
     font-size: 24px;
     color: white;
+    text-shadow: 4px 4px 4px black;
 }
 #tipes{
     font-family: 'happy';
     font-size: 48px;
     text-align: center;
     color: white;
+    text-shadow: 4px 4px 4px black;
 }
 #loled{
     text-align: center;

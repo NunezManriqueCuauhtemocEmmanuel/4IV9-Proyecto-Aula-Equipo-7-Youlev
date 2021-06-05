@@ -5,7 +5,7 @@ html {
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    --body-color: #000000;
+    --body-color: rgb(18, 28, 53);
     --card-background: #d1d2d4;
     --checkbox-background: rgb(53, 69, 112);
 }
@@ -27,6 +27,7 @@ html[data-theme='dark'] {
     list-style: none; 
 }
 body{
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
     color: var(--body-color);
     
 }
@@ -183,12 +184,18 @@ h1{
     font-size: 60px;
     margin-top: 90px;
     text-align: center;
+    animation: zoomInDown;
+    animation-duration: 2s;
 }
+
 #titulo{
     text-align: center;
 }
 h3#titulo{
+    transition: left 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
     font-size: 36px;
+    animation: zoomInUp;
+    animation-duration: 4s;
 }
 .home1{
     margin: 55px;
@@ -421,7 +428,6 @@ h3#titulo{
 	background: rgba(0, 0, 0, 0.932);
 	box-shadow: 0px 0px 8px 12px rgba(255, 255, 255, 0.3);
 	border-radius: 3px;
-	font-family: 'Montserrat', sans-serif;
 	padding: 20px;
 	text-align: center;
 	width: 600px;
@@ -458,6 +464,9 @@ h3#titulo{
 	opacity: 0;
 }
 .popup p{
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
     color: #fff;
 	font-size: 16px;
 	font-weight: 300;
@@ -508,5 +517,15 @@ h3#titulo{
     }
     100%{
         box-shadow: 0 0 16px 24px rgba(57, 132, 182, 0);
+    }
+}
+@keyframes salidaent{
+    0%{
+        animation: backInDown;
+        animation-duration:2s;
+    }
+    100%{
+        animation: backOutDown;
+        animation-duration: 2s;
     }
 }
