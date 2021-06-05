@@ -12,5 +12,7 @@ const Toast = Swal.mixin({
   
   Toast.fire({
     icon: 'success',
-    title: 'Sesión iniciada correctamente'
+    html: '<b class="aler">Sesión iniciada correctamente</b>',
+    background: 'rgb(18, 28, 53)',
+    position: 'center-end',
   })
