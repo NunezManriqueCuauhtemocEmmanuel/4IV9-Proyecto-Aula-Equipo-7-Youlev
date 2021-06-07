@@ -319,7 +319,7 @@ input:hover{
 }
 @keyframes cambioc{
     0%{
-        background:rgb(9, 12, 20);
+        background:rgb(5, 7, 12);
     }
     100%{
         background: rgb(38, 50, 83);

@@ -430,11 +430,11 @@ h1{
 	display: block;
 	text-align: right;
 	transition: .3s ease all;
-	color: #BBBBBB;
+	color: #6b6b6b;
 }
 
 .popup .btn-cerrar-popup:hover {
-	color: #000;
+	color: rgb(255, 255, 255);
 }
 
 .popup h3 {
