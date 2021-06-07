@@ -167,14 +167,7 @@ input#theme:checked {
 input#theme:checked::before {
     left: 2rem;
 }
-.app-picture{
-    margin: 60px;
-    width: 50%;
-    float: right;
-}
-.app-picture img{
-    width: 70%;
-}
+
 
 
 @media (max-width: 1030px) {
@@ -271,15 +264,7 @@ input#theme:checked::before {
     }
 }
 @media (max-width: 400px){
-    .app-picture{
-        text-align: center;
-        align-items: center;
-        margin: 60px;
-        float: none;
-    }
-    .app-picture img{
-        width: 200px;
-    }
+    
     .logo{
         margin-left: 20px;
     }
