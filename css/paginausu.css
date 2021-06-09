@@ -65,6 +65,7 @@ body{
 }
   
 .nav-menu {
+    font-size: 10px;
     display: flex;
     margin-right: 0px;
     list-style: none;
@@ -87,7 +88,6 @@ body{
     padding: 0 20px;
     line-height: 60px;
     cursor: pointer;
-  
     display: none;
 }
 .btn {
