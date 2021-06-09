@@ -68,9 +68,11 @@
     <h1 class="heading">Datos medicos</h1>
     <div class="box-container">
       <div class="box">
-        <img src="img/undraw_swipe_profiles1_i6mr.svg" height="300px">
+        <img src="img/undraw_swipe_profiles1_i6mr.svg" width="65%">
         <p>Ingresa tus datos medicos o editalos</p>
-        <a href="#" class="bton">Ir ahora</a>
+        <a href="#" id="btn-abrir-popup3"><div class="bton">
+          Ir ahora
+        </div></a>
       </div>
     </div>
   </section>
@@ -136,7 +138,58 @@
       </div>
     </div>
   </div>
+  <!--datos medicos-->
+  <div class="overlay3" id="overlay3">
+    <div class="popup3" id="popup3">
+      <a href="#" id="btn-cerrar-popup3" class="btn-cerrar-popup3"><i class="fas fa-times"></i></a>
+      <h3>Datos medicos</h3>
+      <div class="in-flex-1">
+        <form name="formulario" onsubmit="return validar(this)" action="">
+          <div class="contenedor-inputs">
+            <label id="titulo">Peso</label>
+            <input type="text" name="peso" placeholder="Peso" onkeypress="return soloLetras(event)" required>
+            <br>
+            <br>
+            <label id="titulo">Estatura</label>
+            <input type="text" name="estatura" placeholder="Estatura" onkeypress="return soloLetras(event)"
+              required>
+            <br>
+            <br>
+            <label id="titulo">Indice de masa corporal</label>
+            <input type="text" name="apma" placeholder="IMC" onkeypress="return soloLetras(event)"
+              required>
+            <br>
+            <br>
+            <label id="titulo">Diabetes</label>
+            <select name="diabetes" required>
+              <option>Tipo 1</option>
+              <option>Tipo 2</option>
+              <option>Otro tipo</option>
+              <option>No presenta esta enfermedad</option>
+            </select>
+            <br>
+            <br>
+            <label id="titulo">Descipcion</label>
+            <textarea name="descripciond" placeholder="Escriba su mensaje" cols="30" rows="1" required></textarea>
+            <br>
+            <br>
+            <label id="titulo">Cancer</label>
+            <input type="text" name="cancer" placeholder="cancer" required>
+            <br>
+            <br>
+            <label id="titulo">Descipcion</label>
+            <textarea name="descripciond" placeholder="Escriba su mensaje" cols="30" rows="1" required></textarea>
+            <br>
+            <br>
+            <input class="buttons" type="submit" name="" value="Guardar">
+            <input class="buttons" type="submit" name="" value="Editar">
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
+  </div>
+  <script src="js/datosmedicos.js"></script>
   <script src="./js/main.js"></script>
   <script src="js/val.js"></script>
   <script src="js/usuarionuevo.js"></script>

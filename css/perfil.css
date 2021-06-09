@@ -1,6 +1,7 @@
 html {
     font-size: 16px;
     overflow-x: hidden;
+    --deg-bag: rgb(34, 92, 168);
     --circle-col:rgb(18, 28, 53);
     --color-primary: #b8b8b8;
     --color-deg: rgb(242, 242, 242);
@@ -25,6 +26,7 @@ html[data-theme='dark'] {
     background-attachment: fixed;
     --body-color: #fafbff;
     --card-background: #011b38;
+    --deg-bag: rgb(18, 28, 53);
 }
 *{
     padding: 0;
@@ -142,6 +144,7 @@ body{
 }
 /*modo oscuo*/
 input#theme {
+    border: 2px solid transparent;
     margin-top: 17px;
     margin-left: 10px;
     position: relative;
@@ -155,7 +158,6 @@ input#theme {
 }
 
 input#theme::before {
-    margin-top: 2.39px;
     content: '';
     position: absolute;
     width: 25px;
@@ -296,11 +298,11 @@ input#theme:checked::before {
 	display: block;
 	text-align: right;
 	transition: .3s ease all;
-	color: #BBBBBB;
+	color: #dfdfdf;
 }
 
 .popup2 .btn-cerrar-popup2:hover {
-	color: #000;
+	color: rgb(78, 78, 78);
 }
 
 .popup2 h3 {
@@ -336,6 +338,155 @@ input#theme:checked::before {
 .popup2.active p { animation: entradaTitulo .8s ease .5s forwards; }
 .popup2.active .contenedor-inputs { animation: entradaInputs 1s linear 1s forwards; }
 
+.overlay3 {
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	visibility: hidden;
+}
+.overlay3.active {
+    transition: .3s ease all;
+	visibility: visible;
+}
+
+.popup3 {
+    margin: 10px;
+    color: #fff;
+    border-top: 10px solid #00c3ff;
+    border-bottom: 10px solid #00c3ff;
+	background: rgba(0, 0, 0, 0.932);
+	box-shadow: 0px 0px 8px 12px rgba(255, 255, 255, 0.3);
+	border-radius: 3px;
+	padding: 20px;
+	text-align: center;
+	width: 600px;
+	transition: .3s ease all;
+	transform: scale(0.7);
+	opacity: 0;
+}
+.popup3 .btn-cerrar-popup3 {
+	font-size: 16px;
+	line-height: 16px;
+	display: block;
+	text-align: right;
+	transition: .3s ease all;
+	color: #BBBBBB;
+}
+
+.popup3 .btn-cerrar-popup3:hover {
+	color: #000;
+}
+
+.popup3 h3 {
+	font-size: 24px;
+	font-weight: 600;
+	margin-bottom: 5px;
+	opacity: 0;
+    text-align: center;
+}
+
+.popup3 h4 {
+    padding-top: 15px;
+	font-size: 26px;
+	font-weight: 300;
+    margin-top: 10px;
+	margin-bottom: 30px;
+	opacity: 0;
+}
+.popup3 p{
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    color: #fff;
+	font-size: 16px;
+	font-weight: 300;
+	margin-bottom: 40px;
+	opacity: 0;
+}
+
+.popup3.active {	transform: scale(1); opacity: 1; }
+.popup3.active h3 { animation: entradaTitulo .8s ease .5s forwards; }
+.popup3.active h4 { animation: entradaSubtitulo .8s ease .5s forwards; }
+.popup3.active p { animation: entradaTitulo .8s ease .5s forwards; }
+.popup3.active .contenedor-inputs { animation: entradaInputs 1s linear 1s forwards; }
+
+form{
+    text-align: left;
+    color: #fff;
+    transition: all 500ms ease;
+    background: transparent;
+    /*background: rgba(75, 124, 170, 0.4);*/
+    width: 80%;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+form select{
+    font-family: arial;
+    color: white;
+    background: #252323;
+    border: 1px solid #017bab;
+}
+form select:hover{
+    transition: all 500ms ease;
+    transform: scale(1.2);
+}
+.contenedor-inputs{
+    margin: 10px;
+}
+label{
+    font-size: 12px;
+    margin-right: 20px;
+    padding: 10px;
+    margin-top: 2px;
+}
+input{
+    font-family: arial;
+    color: white;
+    background: #252323;
+    margin-top: 2px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #017bab;
+}
+input:hover{
+    transition: all 500ms ease;
+    transform: scale(1.2);
+}
+textarea{
+    font-size: 12px;
+    font-family: arial;
+    color: white;
+    background: #252323;
+    margin-top: 2px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #017bab;
+}
+.contenedor-inputs select{
+    margin-top: 0px;
+    padding: 10px;
+}
+.buttons {
+    cursor: pointer;
+    width: 125%;
+    height: 40px;
+    background: rgb(15, 32, 73);
+    border: none;
+    color: white;
+}
+.buttons:hover{
+    transform: scale(1.1);
+    animation: shadow-pulsef 1200ms 1;
+    transition: all 700ms ease;
+    background: #208be2;
+}
 .perfil-usuario {
     margin-top: 60px;
     color: #333;
@@ -492,6 +643,18 @@ input#theme:checked::before {
 .features h1{
     color: var(--body-color);
 }
+.bton{
+    border-radius: 100px;
+    margin: 10px;
+    padding: 5px;
+    color: rgb(255,255,255);
+}
+.bton:hover{
+    transition: all .5s ease-in-out;
+    background: var(--deg-bag);
+    color: rgb(255,255,255);
+}
+
 @keyframes entradaTitulo {
 	from {
 		opacity: 0;
