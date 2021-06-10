@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regimen</title>
+    <link rel="stylesheet" href="css/regimen.css" type="text/css">
+    <link href="css/estilos.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/a78d4ea77b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="./sante.html" class="logo nav-link">sante et vie</a>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu">
+        <li id="full" class="btn btn--4">
+          <a href="paginausu.html" class="nav-menu-link">inicio</a>
+        </li>
+        <li id="btn-abrir-popup" class="btn btn--4">
+          <a href="#" class="nav-menu-link">¿Usuario Nuevo?</a>
+        </li>
+        <li id="casos" class="btn btn--4">
+          <a href="vernutriologo.html" class="nav-menu-link">Ver nutriologos</a>
+        </li>  
+        <li id="full" class="btn btn--4">
+          <a href="plan.html" class="nav-menu-link">Plan</a>
+        </li>
+        <li id="full" class="btn btn--4">
+          <a href="perfil.jsp" class="nav-menu-link">Perfil</a>
+        </li>
+        <li>
+          <input type="checkbox" name="theme" id="theme">
+        </li>
+      </ul>
+    </nav>
+  </header>
+<section class="home" id="home">
+    <div class="image">
+        <img src="img/undraw_personal_trainer_ote3.svg" alt="">
+    </div>
+    <div class="content">
+    <h3 id="titulo">Plan de <span>ejercicios</span></h3>
+    <table class="content-table">
+      <thead>
+        <tr>
+          <th id="">Ejercicio</th>
+          <th id="">Descripcion</th>
+          <th id="">Intensidad</th>
+          <th id="">Descripcion Intensidad</th>
+          <th id="">Fecha</th>
+          <th id="">Repeticiones</th>
+          <th id="">Numero de series</th>
+          <th id="">Observaciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ejercicio</td>
+          <td>Descripcion</td>
+          <td>Intensidad</td>
+          <td>Descripcion Intensidad</td>
+          <td>Fecha</td>
+          <td>Repeticiones</td>
+          <td>Numero de series</td>
+          <td>Observaciones</td>
+        </tr>
+        <tr>
+          <td>Ejercicio</td>
+          <td>Descripcion</td>
+          <td>Intensidad</td>
+          <td>Descripcion Intensidad</td>
+          <td>Fecha</td>
+          <td>Repeticiones</td>
+          <td>Numero de series</td>
+          <td>Observaciones</td>
+        </tr>
+        <tr>
+          <td>Ejercicio</td>
+          <td>Descripcion</td>
+          <td>Intensidad</td>
+          <td>Descripcion Intensidad</td>
+          <td>Fecha</td>
+          <td>Repeticiones</td>
+          <td>Numero de series</td>
+          <td>Observaciones</td>
+        </tr>
+        <tr>
+          <td>Ejercicio</td>
+          <td>Descripcion</td>
+          <td>Intensidad</td>
+          <td>Descripcion Intensidad</td>
+          <td>Fecha</td>
+          <td>Repeticiones</td>
+          <td>Numero de series</td>
+          <td>Observaciones</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<!--ventana de bienvenida-->
+  <div class="overlay" id="overlay">
+    <div class="popup" id="popup">
+      <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+      <h3>Bienvenido nuevo usuario</h3>
+      <h4>Conoce esta ventana llamada Regimen</h4>
+      <p>Ahora es el turno de conocer la ventana Regimen, en esa ventana podras visualizar el regimen de ejercicios
+         cuando sean asignados por tu nutriologo
+      </p>
+    </div>
+  </div>
+    <script src="./js/main.js"></script>
+    <script src="js/usuarionuevo.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
