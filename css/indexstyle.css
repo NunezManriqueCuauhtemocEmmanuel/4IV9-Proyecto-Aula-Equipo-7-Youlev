@@ -55,11 +55,11 @@ header .logo{
     font-family: 'happy';
     font-weight: 600;
     font-size: 32px;
-    color: rgb(255, 255, 255);
+    color: var(--bluel);
 }
 header .logo span{
     font-family: 'happy';
-    color: var(--bluel);
+    color: rgb(231, 231, 231);
 }
 header .navbar a{
     font-size: 1.7rem;
@@ -84,7 +84,7 @@ header label{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url(../fondos/fondoola.png) no-repeat;
+    background: url(../fondos/layered-waves-haikei.png) no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -106,7 +106,7 @@ header label{
 }
 .home .content p{
     font-size: 1.7rem;
-    color: var(--bluel);
+    color: rgb(78, 78, 78);
     padding: 1rem 0;
 }
 .features .box-container{
@@ -129,7 +129,7 @@ header label{
     transition: .2s linear;
 }
 .features .box-container .box img{
-    height: 20rem;
+    height: 40%;
     border-radius: 20px;
 }
 .features .box-container .box h3{
