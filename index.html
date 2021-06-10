@@ -4,9 +4,100 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Youlev</title>
+    <link href="./css/indexstyle.css" rel="stylesheet" type="text/css">
+    <link href="./css/estilos.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a78d4ea77b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <p>hola</p>
+    <header>
+        <a href="" class="logo"><span>You</span>lev</a>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="fas fa-bars"></label>
+
+        <nav class="navbar">
+            <a href="#home">Inicio</a>
+            <a href="#conocenos">Conocenos</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#casos">Casos de exito</a>
+            <a href="sante.html">Sante et vie</a>
+        </nav>
+    </header>
+    <section class="home" id="home">
+        <div class="content">
+            <h3>You<span>lev</span></h3>
+            <p>Bienvenido a Youlev, somos una empresa que se encarga de mejorar la salud de las personas con 
+                ayuda de especialistas que te generaran planes alimenticios y regimenes de ejercicio desde cualquier dispositivo.</p>
+        </div>
+        <div class="image">
+            <img src="img/undraw_in_sync_xwsa (1).svg" alt="">
+        </div>
+    </section>
+    <section class="features" id="features">
+        <h1 class="heading">Diabetes</h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="./img/diabetes.jpg">
+                <h3>¿Qué es?</h3>
+                <p>Enfermedad crónica e irreversible del metabolismo en la que se produce un exceso de glucosa o azúcar en la sangre y en la orina;
+                   es debida a una disminución de la secreción de la hormona insulina o a una deficiencia de su acción.</p>
+            </div>
+            <div class="box">
+                <img src="./img/diagnostico.jpg">
+                <h3>¿Comó se detecta?</h3>
+                <p>Exámenes de sangre: Glucemia en ayunas. Se diagnostica diabetes si el nivel de glucosa en ayunas es de 126 mg/dl (7.0 mmol/L) o superior en dos exámenes diferentes. Los niveles 
+                   entre 100 y 125 mg/dl (5.5 y 7.0 mmol/L) </p>
+            </div>
+            <div class="box">
+                <img src="https://img.freepik.com/vector-gratis/medico-lupa-medidor-glucosa-sangre-diabetes-mellitus-diabetes-tipo-2-concepto-produccion-insulina-sobre-fondo-blanco-ilustracion-aislada-bluevector-coral-rosado_335657-1530.jpg?size=626&ext=jpg">
+                <h3>Tipos de diabetes mas comunes</h3>
+                <p>Diabetes tipo 1: Ocurre porque el páncreas no fabrica suficiente cantidad de insulina.</p>
+                <p>Diabetes tipo 2: En este tipo de diabetes la capacidad de producir insulina no desaparece pero el cuerpo presenta una resistencia a esta hormona.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="main-container">
+        <footer>
+            <h1 id=con>Contactanos</h1>
+            <div class=formulario>
+                <form action="" >
+                    <p id=dis>Formulario de contacto</p>
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                    <input type="text" name="apellido" placeholder="Apellido" required>
+                    <input type="email" name="correo" placeholder="Correo" required>
+                    <textarea name="mensaje" placeholder="Escriba su mensaje" cols="30" rows="10" required></textarea>
+                    <input type="submit" value="Enviar" id="boton">
+                </form>
+            </div>
+            <div class="redes-sociales">
+                <ul>
+                    <li><p id=facebook><i class="fab fa-facebook-square fa-3x"></i></p></li>
+                    <li><p id="instagram"><i class="fab fa-instagram-square  fa-3x"></i></p></li>
+                    <li><p id="correo"><i class="fas fa-envelope fa-3x"></i></p></li>
+                    <li><p id="twitter"><i class="fab fa-twitter-square fa-3x" ></i></p></li>
+                </ul>
+            </div>
+            <div class=nombres1>
+                <h1 id="n">Hecho por</h1>
+                <div class=nombres>
+                    <br>
+                    <p id="nom">Arana Chavez Emiliano</p>
+                    <br>
+                    <p id="nom">Lizarraga Anguiano Jesus Adrian</p>
+                    <br>
+                    <p id="nom">Núñez Manrique Cuauhtemoc Emmanuel</p>
+                    <br>
+                    <p id="nom">Orduña Melendez Arantza</p>
+                    <br>
+                    <p id="nom">Regalado Zuñiga Leonardo Daniel</p>
+                    <br>
+                    <p id="nom">Trujillo Rodriguez Fernanda</p>
+                    </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
