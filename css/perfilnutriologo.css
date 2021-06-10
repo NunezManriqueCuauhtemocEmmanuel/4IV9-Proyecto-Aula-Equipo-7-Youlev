@@ -16,7 +16,7 @@ html {
 }
 
 html[data-theme='dark'] {
-    --circle-col:rgb(155, 143, 224);
+    --circle-col:rgb(110, 97, 184);
     --color-primary: #e0e0e0;
     --body-background: rgb(53, 69, 112);
     --color-deg: rgb(0, 0, 0);
@@ -535,7 +535,7 @@ textarea{
     display: block;
     width: 225px;
     height: 225px;
-    background: url(../img/undraw_profile_pic_ic5t.svg);
+    background: url(../img/grafico-sanitario-medico_24877-41682.jpg);
     background-size: 100% 100%;
     position: absolute;
     bottom: -65px;
@@ -634,10 +634,10 @@ textarea{
 .features .box-container .box{
     color: rgb(255, 255, 255);
     text-align: center;
-    width: 50%;
+    width: 60%;
+    height: 40%;
     background: var(--circle-col);
     padding: 10px;
-    border-radius: 50px;
     box-shadow: 0px 0px 8px 4px var(--body-background);
 }
 .features h1{
@@ -654,6 +654,108 @@ textarea{
     background: var(--deg-bag);
     color: rgb(255,255,255);
 }
+table {
+    width: 100%;
+    background: transparent;
+    margin-bottom: 1.25em;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 10px;
+  }
+  thead{
+      background: #011b38;
+      color: rgb(255, 255, 255);
+      box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, .4);
+  }
+  table tr th,
+  table tr td {
+    padding: 0.5625em 0.625em;
+    font-size: 9px;
+  }
+  
+  table tr.even,
+  table tr.alt,
+  table tr:nth-of-type(even) {
+    background: transparent;
+  }
+
+  @media only screen and (max-width: 768px) {
+	table.resp,
+	.resp thead,
+	.resp tbody,
+	.resp tr,
+	.resp th,
+	.resp td,
+	.resp caption {
+	  display: block;
+	}
+	
+	table.resp {
+	  border: none
+	}
+	
+	.resp thead tr {
+	  display: none;
+	}
+	
+	.resp tbody tr {
+	  margin: 1em 0;
+	  border: 1px solid #2ba6cb;
+	}
+	
+	.resp td {
+	  border: none;
+	  border-bottom: 1px solid #dddddd;
+	  position: relative;
+	  padding-left: 45%;
+	  text-align: left;
+	}
+	
+	.resp tr td:last-child {
+	  border-bottom: 1px double #dddddd;
+	}
+	
+	.resp tr:last-child td:last-child {
+	  border: none;
+	}
+	
+	.resp td:before {
+	  position: absolute;
+	  top: 6px;
+	  left: 6px;
+	  width: 45%;
+	  padding-right: 10px;
+	  white-space: nowrap;
+	  text-align: left;
+	  font-weight: bold;
+	}
+    td:nth-of-type(1):before {
+        content: "Nombre del paciente";
+      }
+      
+      td:nth-of-type(2):before {
+        content: "Fecha de nacimiento";
+      }
+      
+      td:nth-of-type(3):before {
+        content: "Diabetes";
+      }
+      
+      td:nth-of-type(4):before {
+        content: "Cancer";
+      }
+      
+      td:nth-of-type(5):before {
+        content: "Peso";
+      }
+      
+      td:nth-of-type(6):before {
+        content: "IMC";
+      }
+      td:nth-of-type(7):before {
+        content: "Estatura";
+      }
+  }
 
 @keyframes entradaTitulo {
 	from {
