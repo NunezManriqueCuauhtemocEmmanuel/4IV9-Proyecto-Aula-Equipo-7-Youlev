@@ -101,7 +101,7 @@
             </div>
             <div class="box1">
                 <h3>Confianza</h3>
-                <p>Siempre mantenemos un ambiente de confianza en nuestro lugar de trabajo con nuestros empleados para transmitir esa confianza a nuestros clientes, además, somos la empresa en la que los clientes pueden confiar en nosotros debido a nuestro gran equipo.</p>
+                <p>Siempre mantenemos un ambiente de confianza en nuestro lugar de trabajo con nuestros empleados para transmitir esa confianza a nuestros clientes.</p>
             </div>
             <div class="box1">
                 <h3>Fraternidad</h3>
@@ -125,7 +125,7 @@
             </div>
             <div class="box1">
                 <h3>Paz</h3>
-                <p>EEn nuestro lugar de trabajo buscamos siempre mantener un ambiente de paz para que el equipo y los clientes se sientan más relajados y seguros al trabajar o contratar los servicios de nuestra empresa.</p>
+                <p>En nuestro lugar de trabajo buscamos siempre mantener un ambiente de paz para que el equipo y los clientes se sientan más relajados y seguros al trabajar o contratar los servicios de nuestra empresa.</p>
             </div>
             <div class="box1">
                 <h3>Respeto</h3>
@@ -210,45 +210,61 @@
             </div>
         </div>
     </section>
-    <div class="main-container">
-        <footer>
-            <h1 id=con>Contactanos</h1>
-            <div class=formulario>
-                <form action="" >
-                    <p id=dis>Formulario de contacto</p>
-                    <input type="text" name="nombre" placeholder="Nombre" required>
-                    <input type="text" name="apellido" placeholder="Apellido" required>
-                    <input type="email" name="correo" placeholder="Correo" required>
-                    <textarea name="mensaje" placeholder="Escriba su mensaje" cols="30" rows="10" required></textarea>
-                    <input type="submit" value="Enviar" id="boton">
-                </form>
-            </div>
-            <div class="redes-sociales">
+    <section class="servicios" id="servicios">
+        <h1 class="heading">Nuestros Servicios</h1>
+        <h4 class="heading">Sante et vie</h4>
+        <div class="box-container">
+            <div class="box">
+                <h3 class="title">Plan alimenticio</h3>
+                <div class="price">$0<span> de costo</span></div>
                 <ul>
-                    <li><p id=facebook><i class="fab fa-facebook-square fa-3x"></i></p></li>
-                    <li><p id="instagram"><i class="fab fa-instagram-square  fa-3x"></i></p></li>
-                    <li><p id="correo"><i class="fas fa-envelope fa-3x"></i></p></li>
-                    <li><p id="twitter"><i class="fab fa-twitter-square fa-3x" ></i></p></li>
+                    <li><i class="fas fa-check"></i>Plan de alimentacion Gratuito</li>
+                    <li><i class="fas fa-check"></i>Plan personalizado</li>
+                    <li><i class="fas fa-check"></i>Plan validado por un especialista</li>
+                    <li><i class="fas fa-check"></i>Creado para mejorar tu estilo de vida</li>
+                    <li><i class="fas fa-check"></i>Sin ingresar tarjetas de credito</li>
                 </ul>
+                <a href="sante.html" class="btn">Ingresa ahora</a>
             </div>
-            <div class=nombres1>
-                <h1 id="n">Hecho por</h1>
-                <div class=nombres>
-                    <br>
-                    <p id="nom">Arana Chavez Emiliano</p>
-                    <br>
-                    <p id="nom">Lizarraga Anguiano Jesus Adrian</p>
-                    <br>
-                    <p id="nom">Núñez Manrique Cuauhtemoc Emmanuel</p>
-                    <br>
-                    <p id="nom">Orduña Melendez Arantza</p>
-                    <br>
-                    <p id="nom">Regalado Zuñiga Leonardo Daniel</p>
-                    <br>
-                    <p id="nom">Trujillo Rodriguez Fernanda</p>
-                    </div>
+            <div class="box">
+                <h3 class="title">Regimen de ejercicio</h3>
+                <div class="price">$0<span> de costo</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i>Regimen de Ejercicio Gratuito</li>
+                    <li><i class="fas fa-check"></i>Regimen personalizado</li>
+                    <li><i class="fas fa-check"></i>Regimen validado por un especialista</li>
+                    <li><i class="fas fa-check"></i>Series eficientes para ponerte en forma</li>
+                    <li><i class="fas fa-check"></i>Sin ingresar tarjetas de credito</li>
+                </ul>
+                <a href="sante.html" class="btn">Ingresa ahora</a>
             </div>
-        </footer>
-    </div>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <div class="image">
+            <img src="./img/undraw_contact_us_15o2.svg" alt="">
+        </div>
+        <form action="">
+            <h1 class="heading">Contactanos</h1>
+            <div class="inputBox">
+                <input type="text" required>
+                <label for="">Nombre</label>
+            </div>
+            <div class="inputBox">
+                <input type="email" required>
+                <label for="">Correo</label>
+            </div>
+            <div class="inputBox">
+                <input type="number" required>
+                <label for="">Telefono</label>
+            </div>
+            <div class="inputBox">
+                <textarea required name="" id="" cols="30" rows="10"></textarea>
+                <label for="">Mensaje</label>
+            </div>
+
+            <input type="submit" class="btn" value="Enviar mensaje">
+        </form>
+    </section>
 </body>
 </html>
