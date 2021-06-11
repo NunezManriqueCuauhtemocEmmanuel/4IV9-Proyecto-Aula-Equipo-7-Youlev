@@ -6,7 +6,7 @@
 package Vista;
 
 import Control.accNutriologo;
-import Modelo.MEjerciciosA;
+import Modelo.MAlimentosA;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Emiliano
  */
-public class actEjerA extends HttpServlet {
+public class actAlimA extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,32 +33,29 @@ public class actEjerA extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            try{
+        try{
                 int id = Integer.parseInt(request.getParameter("select"));
                 HttpSession sesionNut = request.getSession();
                 int idN = (int)sesionNut.getAttribute("id");
                 int idU = (int)sesionNut.getAttribute("idS");
 
                 accNutriologo acc = new accNutriologo();
-                MEjerciciosA objEjer = acc.recogerEjercicioA(idU,idN,id);
+                MAlimentosA objAlim = acc.recogerAlimA(idU,idN,id);
                 
-                sesionNut.setAttribute("ejerAnt", objEjer.getId_ejer());
+                sesionNut.setAttribute("alimAnt", objAlim.getId_alimento());
                 
-                sesionNut.setAttribute("objEjerA",objEjer);
+                sesionNut.setAttribute("objAlimA",objAlim);
 
-                if(objEjer!=null){
+                if(objAlim!=null){
 
-                    response.sendRedirect("actualizarEjercicioA.jsp");
+                    response.sendRedirect("actualizarAlimentoA.jsp");
 
                 }else{
-                    response.sendRedirect("regimenNut.jsp");
+                    response.sendRedirect("planNut.jsp");
                 }
             }catch(Exception e){
-                response.sendRedirect("regimenNut.jsp");
+                response.sendRedirect("planNut.jsp");
             }
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

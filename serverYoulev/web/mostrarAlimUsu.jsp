@@ -1,11 +1,11 @@
 <%-- 
-    Document   : cEjercicios
-    Created on : Jun 10, 2021, 2:47:31 AM
+    Document   : mostrarAlimUsu
+    Created on : Jun 11, 2021, 6:16:15 AM
     Author     : Emiliano
 --%>
 
-<%@page import="Control.accNutriologo"%>
-<%@page import="Modelo.CEjercicios"%>
+<%@page import="Modelo.Usuario"%>
+<%@page import="Modelo.AAMostrarNut"%>
 <%@page import="java.util.Vector"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alimentos</title>
+    <title>Plan</title>
     <link rel="stylesheet" href="css/plan.css" type="text/css">
     <link href="css/estilos.css" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/a78d4ea77b.js" crossorigin="anonymous"></script>
@@ -50,56 +50,34 @@
   </header>
 <section class="home" id="home">
   <div class="content">
-      <%
-                boolean act = Boolean.parseBoolean(request.getParameter("act"));
-                
-                if(act){
-                    HttpSession sesionEjer = request.getSession();
-                    int idEjer = (int)sesionEjer.getAttribute("ejer");
-                    accNutriologo acc = new accNutriologo();
-                    CEjercicios ejer = acc.recogerEjercicio(idEjer);
-                    %>
-                <form action="actualizarEjercicios">
-                    <label class="labRC">Ejercicio:</label>
-                    <input type="text" id="cIntensidad" name="idE" value="<%=ejer.getId()%>" style="display: none;">
-                    <input type="text" id="cAlimNom" name="nomE" class="txtRC" value="<%=ejer.getNombre()%>">
-                    <label class="labRC">Descripcion:</label>
-                    <input type="text" id="cEstado" name="descrE" class="txtRC" value="<%=ejer.getDescr()%>">
-                    <input type="submit" onclick="return validarDatos()" value="Actualizar" class="addRC">
-                  </form>
-                <%
-                }else{
-                %>
-                <form action="agregarEjercicios">
-                    <label class="labRC">Ejercicio:</label>
-                    <input type="text" id="cAlimNom" name="nomE" class="txtRC">
-                    <label class="labRC">Descripcion:</label>
-                    <input type="text" id="cEstado" name="descrE" class="txtRC">
-                    <input type="submit" onclick="return validarDatos()" value="Agregar" class="addRC">
-                  </form>
-                <%}%>
-    <h3 id="titulo">Lista de <span>Intensidades</span></h3>
+    <h3 id="titulo">Lista de <span>Usuarios</span></h3>
     <form>
         <table class="content-table">
         <thead>
             <tr>
-            <th id=""></th>
-            <th id="">ID</th>
-            <th id="">Nombre</th>
-            <th id="">Descripcion</th>
+                <th id="">Alimento</th>
+                <th id="">Estado</th>
+                <th id="">Hora</th>
+                <th id="">Cant</th>
+                <th id="">Observaciones</th>
             </tr>
         </thead>
         <tbody>
             <%
-                            Vector<CEjercicios> listaEjercicios = new CEjercicios().listaEjercicios();
+                HttpSession sesionUsu = request.getSession();
+                Usuario usu = (Usuario)sesionUsu.getAttribute("usuario");
+                int idU = usu.getId_usu();
+                
+                    Vector<AAMostrarNut> listaAlimAu = new AAMostrarNut().listaAlimAu(idU);
 
-                    for(CEjercicios ejer : listaEjercicios){
+                    for(AAMostrarNut alimen : listaAlimAu){
                         %>
                         <tr>
-                            <td><input type="radio" name="select" value="<%=ejer.getId()%>" class="radio-button"></td>
-                            <td><%=ejer.getId()%></td>
-                            <td><%=ejer.getNombre()%></td>
-                            <td><%=ejer.getDescr()%></td>
+                            <td><%=alimen.getAlim()%></td>
+                            <td><%=alimen.getEstado()%></td>
+                            <td><%=alimen.getHora()%></td>
+                            <td><%=alimen.getCant()%></td>
+                            <td><%=alimen.getObs()%></td>
                         </tr>
                                     <%
                     }
@@ -107,8 +85,7 @@
         </tbody>
         </table>
         <div class="accionesB">
-            <input type="submit" formaction="actEjercicios" value="Editar" class="boton-accion" id="edit">
-            <input type="submit" formaction="eliminarEjercicios" value="Eliminar" class="boton-accion" id="delete">
+
         </div>
     </form>
   </div>

@@ -36,7 +36,7 @@ public class actualizarEjerA extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String ejer,inten,rep,numS,obs;
-            int intenAnt;
+            int ejerAnt;
             
             ejer = request.getParameter("ejercicio");
             inten = request.getParameter("intensidad");
@@ -60,9 +60,9 @@ public class actualizarEjerA extends HttpServlet {
                     objEjer.setNumS(Integer.parseInt(numS));
                     objEjer.setObs(obs);
 
-                    intenAnt = (int)sesionNut.getAttribute("intenAnt");
+                    ejerAnt = (int)sesionNut.getAttribute("ejerAnt");
                     
-                    int estatus = acc.actualizarEjercicioA(objEjer,intenAnt);
+                    int estatus = acc.actualizarEjercicioA(objEjer,ejerAnt);
                     if(estatus > 0){
                         response.sendRedirect("regimenNut.jsp");
                     }else{

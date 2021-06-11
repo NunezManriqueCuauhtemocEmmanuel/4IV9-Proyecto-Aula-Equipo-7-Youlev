@@ -1,11 +1,11 @@
 <%-- 
-    Document   : agregarEjerA
-    Created on : Jun 10, 2021, 10:18:28 PM
+    Document   : actualizarAlimentoA
+    Created on : Jun 11, 2021, 4:44:12 AM
     Author     : Emiliano
 --%>
 
-<%@page import="Modelo.CIntensidad"%>
-<%@page import="Modelo.CEjercicios"%>
+<%@page import="Modelo.MAlimentosA"%>
+<%@page import="Modelo.CAlimentos"%>
 <%@page import="java.util.Vector"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,7 +15,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asignar Plan</title>
-    <link rel="stylesheet" href="css/asignarregimen.css" type="text/css">
+    <link rel="stylesheet" href="css/asignarplan.css" type="text/css">
+    <link rel="stylesheet" href="css/plan.css" type="text/css">
     <link href="css/estilos.css" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/a78d4ea77b.js" crossorigin="anonymous"></script>
 </head>
@@ -46,61 +47,57 @@
       </nav>
   </header>
 <section class="home" id="home">
-    <div class="image">
-        <img src="img/undraw_healthy_habit_bh5w.svg" alt="">
-    </div>
   <div class="content">
-    <h3 id="titulo">Asignacion de<span> Regimen de ejercicios</span></h3>
-    <p>Asigna los regimenes de ejercicio a tus usuarios</p>
+    <h3 id="titulo">Asignacion de<span> Plan alimenticio</span></h3>
+    <p>Asigna los planes alimenticios a tus usuarios</p>
+  </div>
+  <div class="image">
+    <img src="img/undraw_diet_ghvw.svg" alt="">
   </div>
 </section>
 <section class="homeim">
+    <%
+        HttpSession sesionNut = request.getSession();
+        MAlimentosA objAlim = (MAlimentosA)sesionNut.getAttribute("objAlimA");
+    %>
     <div class="in-flex-1">
-        <form name="formulario" onsubmit="return validar(this)" action="agregarEjerA" method="POST">
+      <form name="formulario" onsubmit="return validar(this)" action="actualizarAlimA">
         <h3 id="titulo">Ingresar plan</h3>
         <div class="contenedor-inputs">
-          <label id="titulo">Ejercicio</label>
-          <select name="ejercicio" class="combobox" required>
+          <label id="titulo">Alimento</label>
+          <select name="alimento" class="combobox" required>
                             <%
-                            Vector<CEjercicios> listaEjer = new CEjercicios().listaEjercicios();
+                            Vector<CAlimentos> listaAlimentos = new CAlimentos().listaAlimentos();
 
-                            for(CEjercicios ejer : listaEjer){
-                        %>
-                            <option value="<%=ejer.getId()%>"><%=ejer.getNombre()%></option>
+                            for(CAlimentos alim : listaAlimentos){
+                                if(objAlim.getId_alimento()==alim.getId()){
+                                    %>
+                            <option value="<%=alim.getId()%>" selected="true"><%=alim.getNombre()+"("+alim.getEstado()+")"%></option>
                                     <%
+                                }else{
+                                    %>
+                            <option value="<%=alim.getId()%>"><%=alim.getNombre()+"("+alim.getEstado()+")"%></option>
+                                    <%
+                                }
                     }
             %>
                         </select>
           <br>
           <br>
-          <label id="titulo">Intensidad</label>
-          <select name="intensidad" class="combobox" required>
-                            <%
-                            Vector<CIntensidad> listaIntensidades = new CIntensidad().listaIntensidades();
-
-                            for(CIntensidad inten : listaIntensidades){
-                        %>
-                            <option value="<%=inten.getId()%>"><%=inten.getDescr()%></option>
-                                    <%
-                    }
-            %>
-                        </select>
+          <label id="titulo">Hora</label>
+          <input type="time" name="hora" value="<%=objAlim.getHora()%>" placeholder="Hora" required>
           <br>
           <br>
-          <label id="titulo">Repeticiones</label>
-          <input type="text" name="repeticiones" placeholder="Repeticiones" required>
-          <br>
-          <br>
-          <label id="titulo">Numero de series</label>
-          <input type="number" name="numseries" placeholder="Numero de series" required>
+          <label id="titulo">Cantidad</label>
+          <input type="text" name="cantidad" value="<%=objAlim.getCant()%>" placeholder="Cantidad" required>
           <br>
           <br>
           <label id="titulo">Observaciones</label>
-          <textarea name="observaciones" placeholder="Observaciones" cols="30" rows="1" required></textarea>
+          <textarea name="observaciones" placeholder="Observaciones" cols="30" rows="1" required><%=objAlim.getObs()%></textarea>
           <br>
           <br>
-          <input class="buttons" type="submit" name="" value="Agregar">
-          <a href="regimenNut.jsp">Regresar</a>
+          <input class="buttons" type="submit" name="" value="Actualizar">
+          <a href="planNut.jsp">Regresar</a>
         </div>
       </form>
     </div>

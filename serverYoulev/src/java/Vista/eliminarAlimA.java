@@ -6,7 +6,6 @@
 package Vista;
 
 import Control.accNutriologo;
-import Modelo.MEjerciciosA;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Emiliano
  */
-public class actEjerA extends HttpServlet {
+public class eliminarAlimA extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,32 +32,24 @@ public class actEjerA extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            try{
+        try{  
                 int id = Integer.parseInt(request.getParameter("select"));
                 HttpSession sesionNut = request.getSession();
                 int idN = (int)sesionNut.getAttribute("id");
                 int idU = (int)sesionNut.getAttribute("idS");
+                
 
                 accNutriologo acc = new accNutriologo();
-                MEjerciciosA objEjer = acc.recogerEjercicioA(idU,idN,id);
-                
-                sesionNut.setAttribute("ejerAnt", objEjer.getId_ejer());
-                
-                sesionNut.setAttribute("objEjerA",objEjer);
+                int estatus = acc.eliminarAlimentoA(idU,idN,id);
 
-                if(objEjer!=null){
-
-                    response.sendRedirect("actualizarEjercicioA.jsp");
-
+                if(estatus > 0){
+                    response.sendRedirect("planNut.jsp");
                 }else{
-                    response.sendRedirect("regimenNut.jsp");
+                    response.sendRedirect("planNut.jsp");
                 }
             }catch(Exception e){
-                response.sendRedirect("regimenNut.jsp");
+                response.sendRedirect("planNut.jsp");
             }
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

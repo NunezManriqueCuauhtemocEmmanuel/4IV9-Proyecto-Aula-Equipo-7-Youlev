@@ -1,12 +1,12 @@
 <%-- 
-    Document   : agregarEjerA
-    Created on : Jun 10, 2021, 10:18:28 PM
+    Document   : agregarAlimentoA
+    Created on : Jun 11, 2021, 4:44:00 AM
     Author     : Emiliano
 --%>
 
-<%@page import="Modelo.CIntensidad"%>
-<%@page import="Modelo.CEjercicios"%>
+<%@page import="Modelo.CAlimentos"%>
 <%@page import="java.util.Vector"%>
+<%@page import="Modelo.MAlimentosA"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asignar Plan</title>
-    <link rel="stylesheet" href="css/asignarregimen.css" type="text/css">
+    <link rel="stylesheet" href="css/asignarplan.css" type="text/css">
     <link href="css/estilos.css" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/a78d4ea77b.js" crossorigin="anonymous"></script>
 </head>
@@ -46,53 +46,39 @@
       </nav>
   </header>
 <section class="home" id="home">
-    <div class="image">
-        <img src="img/undraw_healthy_habit_bh5w.svg" alt="">
-    </div>
   <div class="content">
-    <h3 id="titulo">Asignacion de<span> Regimen de ejercicios</span></h3>
-    <p>Asigna los regimenes de ejercicio a tus usuarios</p>
+    <h3 id="titulo">Asignacion de<span> Plan alimenticio</span></h3>
+    <p>Asigna los planes alimenticios a tus usuarios</p>
+  </div>
+  <div class="image">
+    <img src="img/undraw_diet_ghvw.svg" alt="">
   </div>
 </section>
 <section class="homeim">
     <div class="in-flex-1">
-        <form name="formulario" onsubmit="return validar(this)" action="agregarEjerA" method="POST">
+      <form name="formulario" onsubmit="return validar(this)" action="agregarAlimA">
         <h3 id="titulo">Ingresar plan</h3>
         <div class="contenedor-inputs">
-          <label id="titulo">Ejercicio</label>
-          <select name="ejercicio" class="combobox" required>
+          <label id="titulo">Alimento</label>
+          <select name="alimento" class="combobox" required>
                             <%
-                            Vector<CEjercicios> listaEjer = new CEjercicios().listaEjercicios();
+                            Vector<CAlimentos> listaAlimentos = new CAlimentos().listaAlimentos();
 
-                            for(CEjercicios ejer : listaEjer){
+                            for(CAlimentos alim : listaAlimentos){
                         %>
-                            <option value="<%=ejer.getId()%>"><%=ejer.getNombre()%></option>
+                            <option value="<%=alim.getId()%>"><%=alim.getNombre()+"("+alim.getEstado()+")"%></option>
                                     <%
                     }
             %>
                         </select>
           <br>
           <br>
-          <label id="titulo">Intensidad</label>
-          <select name="intensidad" class="combobox" required>
-                            <%
-                            Vector<CIntensidad> listaIntensidades = new CIntensidad().listaIntensidades();
-
-                            for(CIntensidad inten : listaIntensidades){
-                        %>
-                            <option value="<%=inten.getId()%>"><%=inten.getDescr()%></option>
-                                    <%
-                    }
-            %>
-                        </select>
+          <label id="titulo">Hora</label>
+          <input type="time" name="hora" placeholder="Hora" required>
           <br>
           <br>
-          <label id="titulo">Repeticiones</label>
-          <input type="text" name="repeticiones" placeholder="Repeticiones" required>
-          <br>
-          <br>
-          <label id="titulo">Numero de series</label>
-          <input type="number" name="numseries" placeholder="Numero de series" required>
+          <label id="titulo">Cantidad</label>
+          <input type="text" name="cantidad" placeholder="Cantidad" required>
           <br>
           <br>
           <label id="titulo">Observaciones</label>
@@ -100,7 +86,7 @@
           <br>
           <br>
           <input class="buttons" type="submit" name="" value="Agregar">
-          <a href="regimenNut.jsp">Regresar</a>
+          <a href="planNut.jsp">Regresar</a>
         </div>
       </form>
     </div>
