@@ -100,6 +100,7 @@
           <br>
           <br>
           <input class="buttons" type="submit" name="" value="Agregar">
+          <a href="regimenNut.jsp">Regresar</a>
         </div>
       </form>
     </div>

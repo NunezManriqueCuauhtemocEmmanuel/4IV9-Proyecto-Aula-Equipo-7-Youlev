@@ -67,8 +67,6 @@
                 HttpSession sesionNut = request.getSession();
                 int idNut = (int)sesionNut.getAttribute("id");
                 int idU = (int)sesionNut.getAttribute("idS");
-                System.out.println(idNut);
-                System.out.println(idU);
                 
                             Vector<EAMostrarNut> listaEjerANut = new EAMostrarNut().listaEjerANut(idNut,idU);
 

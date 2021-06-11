@@ -15,6 +15,196 @@ import java.sql.*;
 
 public class accNutriologo {
     
+    //Alimentos Asignados
+    
+    public static int registrarAlimentoA(MAlimentosA ejerA){
+        int estatus = 0;
+        try{
+            
+            Connection con = Conexion.getConection();
+            String q = "insert into malimentos_asignados(id_usu,id_nutriologo,id_alimento,fecha,hora,cantidad,observaciones) "
+                    + "values(?,?,?,CURDATE(),?,?,?)";
+            
+            PreparedStatement ps = con.prepareStatement(q);
+            
+            ps.setString(1, String.valueOf(ejerA.getId_usu()));
+            ps.setString(2, String.valueOf(ejerA.getId_nut()));
+            ps.setString(3, String.valueOf(ejerA.getId_alimento()));
+            ps.setString(4, ejerA.getHora());
+            ps.setString(5, ejerA.getCant());
+            ps.setString(6, ejerA.getObs());
+            
+            estatus = ps.executeUpdate();
+            System.out.println("Registro de ejercicio asignado exitoso");
+            con.close();
+        }catch(Exception ed){
+            System.out.println("Error al registar el ejercicio asignado");
+            System.out.println(ed.getMessage());
+        
+        }
+        return estatus;
+        
+    }
+    
+    public MAlimentosA repetidosAlimentosA(String idUsu,String idNut,String idAlim) throws ClassNotFoundException{
+        MAlimentosA objAlimA = null;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            con = Conexion.getConection();
+            String q = "select * from malimentos_asignados where id_usu = ? AND id_nutriologo = ? AND id_alimento = ?";
+            ps = con.prepareStatement(q);
+            
+            ps.setString(1, idUsu);
+            ps.setString(2, idNut);
+            ps.setString(3, idAlim);
+            
+            rs = ps.executeQuery();
+            while(rs.next()){
+                objAlimA = new MAlimentosA();
+                objAlimA.setId_usu(rs.getInt("id_usu"));
+                objAlimA.setId_nut(rs.getInt("id_nutriologo"));
+                objAlimA.setId_alimento(rs.getInt("id_alimento"));
+                objAlimA.setFecha("fecha");
+                objAlimA.setHora(rs.getString("hora"));
+                objAlimA.setCant(rs.getString("cantidad"));
+                objAlimA.setObs("observaciones");                  
+                break;
+            }
+        
+        }catch(SQLException sq){
+            System.out.println("Error al verificar al ejercicio asignado");
+            System.out.println(sq.getMessage());
+            objAlimA = null;
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                con.close();
+            
+            }catch(Exception e){
+                System.out.println("No encontro la clase");
+                System.out.println(e.getMessage());
+            
+            }
+        }
+        return objAlimA;
+    }
+    
+    public static int eliminarAlimentoA(int idUsu,int idNut,int idAlim){
+        int estatus = 0;
+        try{
+            Connection con = Conexion.getConection();
+            String q = "delete from malimentos_asignados where id_usu = ? AND id_nutriologo = ? AND id_alimento = ?";
+            
+            PreparedStatement ps = con.prepareStatement(q);
+            
+            ps.setString(1, String.valueOf(idUsu));
+            ps.setString(2, String.valueOf(idNut));
+            ps.setString(3, String.valueOf(idAlim));
+            
+            estatus = ps.executeUpdate();
+            System.out.println("Eliminar alimento asignado con exito");
+            con.close();
+        }catch(Exception ed){
+            System.out.println("Error al eliminar alimento asignado");
+            System.out.println(ed.getMessage());
+        
+        }
+        return estatus;
+        
+    }
+    
+    public MAlimentosA recogerAlimA(int idUsu,int idNut,int idAlim) throws ClassNotFoundException{
+        MAlimentosA objAlimA = null;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            con = Conexion.getConection();
+            String q = "select * from malimentos_asignados where id_usu = ? AND id_nutriologo = ? AND id_alimento = ?";
+
+            ps = con.prepareStatement(q);
+            ps.setString(1, String.valueOf(idUsu));
+            ps.setString(2, String.valueOf(idNut));
+            ps.setString(3, String.valueOf(idAlim));
+            rs = ps.executeQuery();
+            while(rs.next()){
+                objAlimA = new MAlimentosA();
+                objAlimA.setId_usu(rs.getInt("id_usu"));
+                objAlimA.setId_nut(rs.getInt("id_nutriologo"));
+                objAlimA.setId_alimento(rs.getInt("id_alimento"));
+                objAlimA.setFecha("fecha");
+                objAlimA.setHora(rs.getString("hora"));
+                objAlimA.setCant(rs.getString("cantidad"));
+                objAlimA.setObs(rs.getString("observaciones"));
+                break;
+            }
+        }catch(SQLException sq){
+            System.out.println("Error al verificar al producto");
+            System.out.println(sq.getMessage());
+            objAlimA = null;
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                con.close();
+            
+            }catch(Exception e){
+                System.out.println("No encontro la clase");
+                System.out.println(e.getMessage());
+            
+            }
+        }
+        
+        return objAlimA;
+    }
+    
+    public static int actualizarAlimentoA(MAlimentosA alimA,int alimAnt){
+        int estatus = 0;
+        boolean bool = false;
+        try{
+            accNutriologo acc = new accNutriologo();
+
+            MAlimentosA rec = acc.recogerAlimA(alimA.getId_usu(),alimA.getId_nut(),alimAnt);
+            
+            if(rec.getId_usu()==alimA.getId_usu()&rec.getId_nut()==alimA.getId_nut()&rec.getId_alimento()==alimA.getId_alimento()){
+                bool = true;
+            }else{
+                MAlimentosA rep = acc.repetidosAlimentosA(String.valueOf(alimA.getId_usu()),String.valueOf(alimA.getId_nut()),String.valueOf(alimA.getId_alimento()));
+                if(rep==null){
+                    bool = true;
+                }
+            }
+            if(bool){
+                Connection con = Conexion.getConection();
+                String q = "update malimentos_asignados set id_alimento = ?, fecha = CURDATE(), hora = ?, cantidad = ?, observaciones = ?"
+                        + " where (id_usu = ?) AND (id_nutriologo = ?) AND (id_alimento = ?)";
+
+                PreparedStatement ps = con.prepareStatement(q);
+
+                ps.setString(1, String.valueOf(alimA.getId_alimento()));
+                ps.setString(2, String.valueOf(alimA.getHora()));
+                ps.setString(3, String.valueOf(alimA.getCant()));
+                ps.setString(4, String.valueOf(alimA.getObs()));
+                ps.setString(5, String.valueOf(alimA.getId_usu()));
+                ps.setString(6, String.valueOf(alimA.getId_nut()));
+                ps.setString(7, String.valueOf(alimAnt));
+
+                estatus = ps.executeUpdate();
+                System.out.println("Actualizacion alimento asignado exitosa");
+                con.close();
+            }
+        }catch(Exception ed){
+            System.out.println("Error al actualizar el alimento asignado");
+            System.out.println(ed.getMessage());
+        
+        }
+        return estatus;
+        
+    }
+    
     //Ejercicios Asignados
     
     public static int registrarEjercicioA(MEjerciciosA ejerA){
@@ -164,13 +354,13 @@ public class accNutriologo {
         return objEjerA;
     }
     
-    public static int actualizarEjercicioA(MEjerciciosA ejerA,int intenAnt){
+    public static int actualizarEjercicioA(MEjerciciosA ejerA,int ejerAnt){
         int estatus = 0;
         boolean bool = false;
         try{
             accNutriologo acc = new accNutriologo();
 
-            MEjerciciosA rec = acc.recogerEjercicioA(ejerA.getId_usu(),ejerA.getId_nut(),intenAnt);
+            MEjerciciosA rec = acc.recogerEjercicioA(ejerA.getId_usu(),ejerA.getId_nut(),ejerAnt);
             
             if(rec.getId_usu()==ejerA.getId_usu()&rec.getId_nut()==ejerA.getId_nut()&rec.getId_ejer()==ejerA.getId_ejer()){
                 bool = true;
@@ -194,7 +384,7 @@ public class accNutriologo {
                 ps.setString(5, String.valueOf(ejerA.getObs()));
                 ps.setString(6, String.valueOf(ejerA.getId_usu()));
                 ps.setString(7, String.valueOf(ejerA.getId_nut()));
-                ps.setString(8, String.valueOf(intenAnt));
+                ps.setString(8, String.valueOf(ejerAnt));
 
                 estatus = ps.executeUpdate();
                 System.out.println("Actualizacion ejercicio asignado exitosa");

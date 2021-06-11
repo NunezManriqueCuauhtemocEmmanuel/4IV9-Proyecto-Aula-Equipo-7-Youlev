@@ -117,6 +117,7 @@
           <br>
           <br>
           <input class="buttons" type="submit" name="" value="Actualizar">
+          <a href="regimenNut.jsp">Regresar</a>
         </div>
       </form>
     </div>
