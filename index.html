@@ -5,112 +5,212 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Youlev</title>
-    <link href="../4IV9-Proyecto-Aula-Equipo-7-Youlev/css/style.css" rel="stylesheet" type="text/css">
-    <link href="../4IV9-Proyecto-Aula-Equipo-7-Youlev/css/estilos.css" rel="stylesheet" type="text/css">
+    <link href="./css/indexstyle.css" rel="stylesheet" type="text/css">
+    <link href="./css/estilos.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a78d4ea77b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="main-container">
-        <header class="header">
-            <nav class="nav">
-              <a href="#" class="logo nav-link">Youlev</a>
-              <button class="nav-toggle" aria-label="Abrir menú">
-                <i class="fas fa-bars"></i>
-              </button>
-              <ul class="nav-menu">
-                <li id="full" class="btn btn--4">
-                  <a href="./index.html" class="nav-menu-link">Inicio</a>
-                </li>
-                <li id="full" class="btn btn--4">
-                  <a href="./conocenos.html" class="nav-menu-link">conocenos</a>
-                </li>
-                <li id="full" class="btn btn--4">
-                  <a href="./productos.html" class="nav-menu-link">servicios</a>
-                </li>
-                <li id="full" class="btn btn--4">
-                  <a href="./casos_exito.html" class="nav-menu-link">Casos de exito</a>
-                </li>
-                <li id="full" class="btn btn--4">
-                    <a href="./sante.html" class="nav-menu-link">SANTÉ ET VIE</a>
-                  </li>
-              </ul>
-            </nav>
-        </header>
-        <h1 id=hip>Youlev</h1>
-        <div class="contenedor">
-            <div class="slider-contenedor">
-                <section class="contenido-slider">
-                    <div>
-                        <h2 id=intro>Una manera muy practica de mejorar tu salud, ¡¡¡desde cualquiera de tus dispositivos!!!</h2>
-                    </div>
-                    <img src="./img/animacion.svg" alt="">
-    
-                </section>
-                <section class="contenido-slider">
-                    <img src="./img/1754330.png" height="300px" width="auto">
-                    <div>
-                        <h2 id=intro>Una prueba que puede salvar tu vida, ¡¡¡hazla, no te arriesgues!!!</h2>
-                    </div>   
-                </section>
-            <section class="contenido-slider">
-                <div>
-                    <h2 id=intro>manten un orden en tu vida para mantenerte sano</h2>
-                </div>
-                <img src="./img/regulacion.png" alt="">
-    
-            </section>
-            <section class="contenido-slider">
-                <div>
-                    <h2 id=intro>Una manera muy practica de mejorar tu salud, ¡¡¡desde cualquiera de tus dispositivos!!!</h2>
-                </div>
-                <img src="./img/animacion.svg" alt="">
+    <header>
+        <a href="" class="logo"><span>You</span>lev</a>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="fas fa-bars"></label>
 
-            </section>
+        <nav class="navbar">
+            <a href="#home">Inicio</a>
+            <a href="#conocenos">Conocenos</a>
+            <a href="#casos">Casos de exito</a>
+            <a href="#servicios">Servicios</a>
+            <a href="sante.html">Sante et vie</a>
+        </nav>
+    </header>
+    <section class="home" id="home">
+        <div class="content">
+            <h3>You<span>lev</span></h3>
+            <p>Bienvenido a Youlev, somos una empresa que se encarga de mejorar la salud de las personas con 
+                ayuda de especialistas que te generaran planes alimenticios y regimenes de ejercicio desde cualquier dispositivo.</p>
         </div>
-        <section class="home">
-            <div class="in-flex-2">
-                <h1 id="intro">que es la diabetes</h1>
-                <div>
-                    Enfermedad crónica e irreversible del metabolismo en la que se produce un exceso de glucosa o azúcar en la sangre y en la orina; es debida a una disminución de la secreción de la hormona insulina o a una deficiencia de su acción.
-                </div>
+        <div class="image">
+            <img src="img/undraw_in_sync_xwsa (1).svg" alt="">
+        </div>
+    </section>
+    <section class="features" id="features">
+        <h1 class="heading">Diabetes</h1>
+        <div class="box-container">
+            <div class="box">
                 <img src="./img/diabetes.jpg">
+                <h3>¿Qué es?</h3>
+                <p>Enfermedad crónica e irreversible del metabolismo en la que se produce un exceso de glucosa o azúcar en la sangre y en la orina;
+                   es debida a una disminución de la secreción de la hormona insulina o a una deficiencia de su acción.</p>
             </div>
-        </section>
-        <section class="home">
-            <div class="in-flex-2">
-                <h1 id="intro">como se detecta</h1>
-                <div>
-                    Exámenes de sangre: Glucemia en ayunas. Se diagnostica diabetes si el nivel de glucosa en ayunas es de 126 mg/dl (7.0 mmol/L) o superior en dos exámenes diferentes. Los niveles entre 100 y 125 mg/dl (5.5 y 7.0 mmol/L) se denominan alteración de la glucosa en ayunas o prediabetes.
-                </div>
+            <div class="box">
                 <img src="./img/diagnostico.jpg">
+                <h3>¿Comó se detecta?</h3>
+                <p>Exámenes de sangre: Glucemia en ayunas. Se diagnostica diabetes si el nivel de glucosa en ayunas es de 126 mg/dl (7.0 mmol/L) o superior en dos exámenes diferentes. Los niveles 
+                   entre 100 y 125 mg/dl (5.5 y 7.0 mmol/L) </p>
             </div>
-        </section>
-        <h1 id=tipes>tipos de diabetes mas comunes</h1>
-        <div class=informacion>
-            <div>
-                <h2 id=intro>Diabetes tipo 1
-                </h2>
-                <p>La diabetes tipo 1 es una de las enfermedades crónicas infantiles más frecuentes. Ocurre porque el páncreas no fabrica suficiente cantidad de insulina. 
-
-                    Hasta hoy, se desconocen las causas exactas que dan origen a una diabetes tipo 1. Se sabe que existen una serie de factores combinados entre sí:
-                    
-                    Factor genético. Se hereda la predisposición a tener diabetes, no la diabetes en sí. </p>
-            </div>
-            <div>
-                <h2 id=intro>Diabetes tipo 2
-                </h2>
-                <p>La diabetes tipo 2 es la forma de diabetes más frecuente en personas mayores de 40 años. Se la conoce también como diabetes del adulto, aunque está aumentando mucho su incidencia en adolescentes e incluso preadolescentes con obesidad. En este tipo de diabetes la capacidad de producir insulina no desaparece pero el cuerpo presenta una resistencia a esta hormona. En fases tempranas de la enfermedad, la cantidad de insulina producida por el páncreas es normal o alta. Con el tiempo la producción de insulina por parte del páncreas puede disminuir.
-                    Factor genético o hereditario. La diabetes tipo 2 tiene mayor riesgo hereditario que la tipo 1. En casi todos los casos un padre o un abuelo tienen la enfermedad. En el caso de gemelos idénticos, si uno tiene la enfermedad, el otro tiene un 80% de posibilidades de desarrollarla.
-                    </p>
-            </div>
-            <div>
-                <h2 id=intro>Diabetes MODY (Maturity Onset Diabetes in the Young)
-                </h2>
-                <p>Se produce por defectos genéticos de las células beta. Existen diferentes tipos de diabetes MODY, hasta la actualidad se han descrito 7. Se deben a un defecto en la secreción de insulina, no afectándose su acción. Se heredan de manera autosómica dominante, por ello cuando una persona tiene diabetes MODY es habitual que varios miembros de la familia también la padezcan y en varias generaciones.</p>
+            <div class="box">
+                <img src="https://img.freepik.com/vector-gratis/medico-lupa-medidor-glucosa-sangre-diabetes-mellitus-diabetes-tipo-2-concepto-produccion-insulina-sobre-fondo-blanco-ilustracion-aislada-bluevector-coral-rosado_335657-1530.jpg?size=626&ext=jpg">
+                <h3>Tipos de diabetes mas comunes</h3>
+                <p>Diabetes tipo 1: Ocurre porque el páncreas no fabrica suficiente cantidad de insulina.</p>
+                <p>Diabetes tipo 2: En este tipo de diabetes la capacidad de producir insulina no desaparece pero el cuerpo presenta una resistencia a esta hormona.</p>
             </div>
         </div>
+    </section>
+    <section class="conocenos" id="conocenos">
+        <h1 class="heading">Conocenos</h1>
+        <div class="column">
+            <div class="image">
+                <img src="img/undraw_content_team_3epn.svg" alt="">
+            </div>
+            <div class="content">
+                <h3>Quienes somos</h3>
+                <p>Una empresa totalmente responsable en su trabajo dedicada a mejorar la salud de los clientes haciendo conciencia desde un ámbito tecnológico y Promover en la población el cuidado de la salud con ayuda de datos obtenidos mediante aplicaciones web, además de concientizar a las personas respecto a la importancia que tiene cuidado de su salud.</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <h3>Filosófia</h3>
+                <p>Somos un equipo de trabajo cuyo pensamiento es el de enseñar a la sociedad acerca de la importancia de la salud tanto para si mismos como para la salud global.</p>
+            </div>
+            <div class="image">
+                <img src="img/heart-health.png" alt="">
+            </div>
+        </div>
+        <div class="column">
+            <div class="image">
+                <img src="img/objetivo.png" alt="">
+            </div>
+            <div class="content">
+                <h3>Objetivos</h3>
+                <p>Una empresa totalmente responsable en su trabajo dedicada a mejorar la salud de los clientes haciendo conciencia desde un ámbito tecnológico y Promover en la población el cuidado de la salud con ayuda de datos obtenidos mediante aplicaciones web, además de concientizar a las personas respecto a la importancia que tiene cuidado de su salud.</p>
+            </div>
+        </div>
+    </section>
+    <section class="features" id="features">
+        <h1 class="heading">Valores</h1>
+        <div class="box-container">
+            <div class="box1">
+                <h3>Amor</h3>
+                <p>Tanto en nuestro trabajo como en proyectos demostramos nuestro arduo trabajo dando todo el amor posible a nuestros programas y trabajos por hacer</p>
+            </div>
+            <div class="box1">
+                <h3>Amistad</h3>
+                <p>En nuestra empresa el lugar de trabajo siempre es ameno y tranquilo para todos los trabajadores, además, mantenemos un ambiente amistoso para mayor rendimiento y sea más agradable el ambiente. </p>
+            </div>
+            <div class="box1">
+                <h3>Confianza</h3>
+                <p>Siempre mantenemos un ambiente de confianza en nuestro lugar de trabajo con nuestros empleados para transmitir esa confianza a nuestros clientes, además, somos la empresa en la que los clientes pueden confiar en nosotros debido a nuestro gran equipo.</p>
+            </div>
+            <div class="box1">
+                <h3>Fraternidad</h3>
+                <p>Buscamos estar en un lugar donde todos nos sintamos como hermanos trabajando en un mismo equipo y tener un mejor rendimiento a la hora de hacer proyectos.</p>
+            </div>
+            <div class="box1">
+                <h3>Honor</h3>
+                <p>A la hora de desarrollar los productos pedidos por el cliente damos todo de nosotros para mantener el honor de la empresa en alto y adquirir buenas criticas y recomendaciones de nuestros clientes.</p>
+            </div>
+            <div class="box1">
+                <h3>Honradez</h3>
+                <p>Cuando trabajamos en el producto solicitado lo hacemos con toda honradez ya que un buen proyecto siempre sale mejor usando este tipo de valores.</p>
+            </div>
+            <div class="box1">
+                <h3>Justicia</h3>
+                <p>Somos muy justos con nuestros trabajadores para que puedan dar lo mejor de ellos y podamos dar lo mejor de nosotros en el producto final.</p>
+            </div>
+            <div class="box1">
+                <h3>Solidaridad</h3>
+                <p>Somos muy solidarios con nuestro equipo y con los clientes al tratar de entender la razón de las cosas y el por qué piden lo que solicitan </p>
+            </div>
+            <div class="box1">
+                <h3>Paz</h3>
+                <p>EEn nuestro lugar de trabajo buscamos siempre mantener un ambiente de paz para que el equipo y los clientes se sientan más relajados y seguros al trabajar o contratar los servicios de nuestra empresa.</p>
+            </div>
+            <div class="box1">
+                <h3>Respeto</h3>
+                <p>Somos respetuosos al dirigirnos con nuestro equipo y clientes para mantener un ambiente pacifico y seguro para las dos partes.</p>
+            </div>
+            <div class="box1">
+                <h3>Tolerancia</h3>
+                <p>Somos tolerantes con nuestro equipo ante las situaciones difíciles y buscamos entender lo mejor posible la situación analizándola, además, somos muy tolerantes en tanto a las peticiones del cliente dentro de un rango de tolerancia.</p>
+            </div>
+        </div>
+    </section>
+    <section class="casos" id="casos">
+        <h1 class="heading">Casos de exito</h1>
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src="http://www.hems.com.mx/images/Fachada.jpg" width="200px" height="170px">
+                    <h3>Primer Caso</h3>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="comment">
+                        Clínica “Almonte:” A partir de la implementación de nuestro proyecto en esta clínica los y las pacientes que padecen diabetes pueden divisar el plan de alimentación que les proporciona su nutriólogo encargado sin la necesidad de salir de su hogar
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGeSoh6RYfmRqdTmK2UdjewcHXdPkTZ1hpHg&usqp=CAU">
+                    <h3>Segundo Caso</h3>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="comment">
+                        Austin Jenkins: Joven de 31 años propenso a padecer diabetes por cuestiones genéticas
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR12Lvfp-RaDo66Xq-3tsKqgfUO8n8qDB6hQg&usqp=CAU">
+                    <h3>Tercer Caso</h3>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="comment">
+                        Hospital General “Pequeño Michi”: Desde el uso de nuestro proyecto es más sencilla la interacción del paciente con el nutriólogo ya que este último puede visualizar fácilmente los datos del paciente y emitir los planes alimenticios sin necesidad de utilizar papel. 
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3Lp8vGHKzvrNjs66sgDjVSBtCD2Yoq1S75Q&usqp=CAU">
+                    <h3>Cuarto Caso</h3>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="comment">
+                        Familia “Rodríguez”: Todos los hombres de la familia han padecido diabetes tipo 2, Emiliano Rodríguez de 15 años de edad no ha presentado ningún síntoma, pero sus padres han buscado la forma de mantener su salud estable, con ayuda de “Sante et vie” pueden ponerse en contacto con un especialista
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="main-container">
         <footer>
             <h1 id=con>Contactanos</h1>
             <div class=formulario>
@@ -149,7 +249,6 @@
                     </div>
             </div>
         </footer>
-        <script src="./js/main.js"></script>
     </div>
 </body>
 </html>

@@ -4,22 +4,24 @@
 }
 #titulo{
     font-family: 'happy';
-    color:white;
 }
-
+#btn-abrir-popup{
+    font-family: 'happy';
+}
 #full{
     font-family: 'happy';
-    font-size: 12px;
 }
 #hip{
     font-family: 'happy';
     font-size: 80px;
     text-align: center;
-    color: white;
+    color: rgb(255, 255, 255);
+    text-shadow: 4px 4px 4px black;
 }
 #sub{
     font-family: 'happy';
     text-align: center;
+    text-shadow: -4px 2px 2px black;
 }
 #con{
     font-family: 'happy';
@@ -27,22 +29,26 @@
     text-align: center;
     color: white;
     padding: 20px;
+    text-shadow: 4px 4px 4px black;
 }
 #intro{
     font-family: 'happy';
     font-size: 24px;
     color: white;
+    text-shadow: 4px 4px 4px black;
 }
 #val{
     font-family: 'happy';
     font-size: 24px;
     color: white;
+    text-shadow: 4px 4px 4px black;
 }
 #tipes{
     font-family: 'happy';
     font-size: 48px;
     text-align: center;
     color: white;
+    text-shadow: 4px 4px 4px black;
 }
 #loled{
     text-align: center;

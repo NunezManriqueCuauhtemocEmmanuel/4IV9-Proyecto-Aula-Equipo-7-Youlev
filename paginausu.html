@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=}, initial-scale=1.0">
+    <title>Inicio Usuario</title>
+    <link href="./css/paginausu.css" rel="stylesheet" type="text/css">
+    <link href="./css/estilos.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a78d4ea77b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+          <a href="./sante.html" class="logo nav-link">sante et vie</a>
+          <button class="nav-toggle" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-menu">
+            <li id="btn-abrir-popup" class="btn btn--4">
+              <a href="#" class="nav-menu-link">¿Usuario Nuevo?</a>
+            </li>
+            <li id="casos" class="btn btn--4">
+              <a href="vernutriologo.html" class="nav-menu-link">Ver nutriologos</a>
+            </li>  
+            <li id="full" class="btn btn--4">
+              <a href="plan.html" class="nav-menu-link">Plan</a>
+            </li>
+            <li id="full" class="btn btn--4">
+              <a href="regimen.html" class="nav-menu-link">Regimen</a>
+            </li>
+            <li id="full" class="btn btn--4">
+              <a href="./perfil.html" class="nav-menu-link">Perfil</a>
+            </li>
+            <li>
+              <input type="checkbox" name="theme" id="theme">
+            </li>
+          </ul>
+        </nav>
+    </header>
+
+    <section class="home1">
+      <div class="in-flex-3">
+        <h1 id="titulo">Santé et vie</h1>
+        <h3 id="titulo">bienvenido Usuario</h3>
+          <div>Texto introductorio</div>
+      </div>
+      <div class="in-flex-3">
+          <img src="./img/undraw_healthy_options_sdo3.svg">
+      </div>
+    </section>
+    <!--Ventana Flotante-->
+    <div class="overlay" id="overlay">
+			<div class="popup" id="popup">
+				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+				<h3>Bienvenido nuevo usuario</h3>
+				<h4>Lee esto antes de empezar</h4>
+				<p>Hola, se bienvenido a Sante et vie, este es un lugar preocupado por tu vida; contamos con especialistas que te ayudarán a mejorar tu salud con planes de alimentacion y planes de ejercicio, te pedimos porfavor ingresar a la ventana de perfil y colocar tus datos medicos que se te pedirán para que tu nutriologo te pueda dar una atencion en base a tu condicion.</p>
+        <p>¡¡¡¡¡IMPORTANTE!!!!!</p>
+        <p>Para cerrar tu sesion, presiona la palabra sante et vie en la barra de navegacion color azul</p>
+			</div>
+		</div>
+	</div>
+  <script src="./js/main.js"></script>
+  <script src="js/usuarionuevo.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/bienvenida.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
