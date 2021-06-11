@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asignar Plan</title>
     <link rel="stylesheet" href="css/asignarregimen.css" type="text/css">
+    <link rel="stylesheet" href="css/regimen.css" type="text/css">
     <link href="css/estilos.css" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/a78d4ea77b.js" crossorigin="anonymous"></script>
 </head>
