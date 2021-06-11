@@ -1,10 +1,11 @@
 <%-- 
-    Document   : regimenNut
-    Created on : Jun 10, 2021, 5:48:33 PM
+    Document   : mostrarAlimUsu
+    Created on : Jun 11, 2021, 6:16:15 AM
     Author     : Emiliano
 --%>
 
-<%@page import="Modelo.EAMostrarNut"%>
+<%@page import="Modelo.Usuario"%>
+<%@page import="Modelo.AAMostrarNut"%>
 <%@page import="java.util.Vector"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regimen</title>
+    <title>Plan</title>
     <link rel="stylesheet" href="css/plan.css" type="text/css">
     <link href="css/estilos.css" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/a78d4ea77b.js" crossorigin="anonymous"></script>
@@ -49,36 +50,34 @@
   </header>
 <section class="home" id="home">
   <div class="content">
-    <h3 id="titulo">Lista de <span>Ejercicios</span></h3>
+    <h3 id="titulo">Lista de <span>Usuarios</span></h3>
     <form>
         <table class="content-table">
         <thead>
             <tr>
-                <th id=""></th>
-                <th id="">Usuario</th>
-                <th id="">Ejercicio</th>
-                <th id="">Intensidad</th>
-                <th id="">Repeticiones</th>
-                <th id="">Número de Series</th>
+                <th id="">Alimento</th>
+                <th id="">Estado</th>
+                <th id="">Hora</th>
+                <th id="">Cant</th>
+                <th id="">Observaciones</th>
             </tr>
         </thead>
         <tbody>
             <%
-                HttpSession sesionNut = request.getSession();
-                int idNut = (int)sesionNut.getAttribute("id");
-                int idU = (int)sesionNut.getAttribute("idS");
+                HttpSession sesionUsu = request.getSession();
+                Usuario usu = (Usuario)sesionUsu.getAttribute("usuario");
+                int idU = usu.getId_usu();
                 
-                            Vector<EAMostrarNut> listaEjerANut = new EAMostrarNut().listaEjerANut(idNut,idU);
+                    Vector<AAMostrarNut> listaAlimAu = new AAMostrarNut().listaAlimAu(idU);
 
-                    for(EAMostrarNut eaNut : listaEjerANut){
+                    for(AAMostrarNut alimen : listaAlimAu){
                         %>
                         <tr>
-                            <td><input type="radio" name="select" value="<%=eaNut.getId_ejer()%>" class="radio-button"></td>
-                            <td><%=eaNut.getUsu()%></td>
-                            <td><%=eaNut.getEjer()%></td>
-                            <td><%=eaNut.getInten()%></td>
-                            <td><%=eaNut.getRep()%></td>
-                            <td><%=eaNut.getNumS()%></td>
+                            <td><%=alimen.getAlim()%></td>
+                            <td><%=alimen.getEstado()%></td>
+                            <td><%=alimen.getHora()%></td>
+                            <td><%=alimen.getCant()%></td>
+                            <td><%=alimen.getObs()%></td>
                         </tr>
                                     <%
                     }
@@ -86,10 +85,7 @@
         </tbody>
         </table>
         <div class="accionesB">
-            <a href="agregarEjercicioA.jsp">Agregar</a>
-            <input type="submit" formaction="actEjerA" value="Actualizar" class="boton-accion" id="delete" method="POST">
-            <input type="submit" formaction="eliminarEjerA" value="Borrar" class="boton-accion" id="delete" method="POST">
-            <a href="visualizarUsuAsignados.jsp">Regresar</a>
+
         </div>
     </form>
   </div>

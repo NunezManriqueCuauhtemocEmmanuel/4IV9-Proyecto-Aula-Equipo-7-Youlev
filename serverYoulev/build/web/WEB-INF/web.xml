@@ -80,6 +80,26 @@
         <servlet-name>actualizarEjerA</servlet-name>
         <servlet-class>Vista.actualizarEjerA</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>eliminarAlimA</servlet-name>
+        <servlet-class>Vista.eliminarAlimA</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregarAlimA</servlet-name>
+        <servlet-class>Vista.agregarAlimA</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>actAlimA</servlet-name>
+        <servlet-class>Vista.actAlimA</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>actualizarAlimA</servlet-name>
+        <servlet-class>Vista.actualizarAlimA</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>iniciarSusu</servlet-name>
+        <servlet-class>Vista.iniciarSusu</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>actIntensidadRP</servlet-name>
         <url-pattern>/actIntensidadRP</url-pattern>
@@ -159,6 +179,26 @@
     <servlet-mapping>
         <servlet-name>actualizarEjerA</servlet-name>
         <url-pattern>/actualizarEjerA</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminarAlimA</servlet-name>
+        <url-pattern>/eliminarAlimA</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregarAlimA</servlet-name>
+        <url-pattern>/agregarAlimA</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>actAlimA</servlet-name>
+        <url-pattern>/actAlimA</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>actualizarAlimA</servlet-name>
+        <url-pattern>/actualizarAlimA</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>iniciarSusu</servlet-name>
+        <url-pattern>/iniciarSusu</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

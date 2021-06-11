@@ -66,8 +66,9 @@
             <%
                 HttpSession sesionNut = request.getSession();
                 int idNut = (int)sesionNut.getAttribute("id");
+                int idU = (int)sesionNut.getAttribute("idS");
                 
-                            Vector<AAMostrarNut> listaAlimANut = new AAMostrarNut().listaAlimANut(idNut);
+                    Vector<AAMostrarNut> listaAlimANut = new AAMostrarNut().listaAlimANut(idNut,idU);
 
                     for(AAMostrarNut alimen : listaAlimANut){
                         %>
@@ -85,8 +86,10 @@
         </tbody>
         </table>
         <div class="accionesB">
-            <input type="submit" formaction="cargarPlan" value="Plan de Alimentacion" class="boton-accion" id="edit" method="POST">
-            <input type="submit" formaction="cargarRegimen" value="Regimen de Ejercicios" class="boton-accion" id="delete" method="POST">
+            <a href="agregarAlimentoA.jsp">Agregar</a>
+            <input type="submit" formaction="actAlimA" value="Actualizar" class="boton-accion" id="delete" method="POST">
+            <input type="submit" formaction="eliminarAlimA" value="Borrar" class="boton-accion" id="delete" method="POST">
+            <a href="visualizarUsuAsignados.jsp">Regresar</a>
         </div>
     </form>
   </div>

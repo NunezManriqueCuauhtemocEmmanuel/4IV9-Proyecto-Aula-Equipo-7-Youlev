@@ -18,7 +18,7 @@ import java.util.Vector;
  */
 public class AAMostrarNut {
     private int id_alim;
-    private String usu, alim, estado, hora, cant;
+    private String usu, obs, alim, estado, hora, cant;
 
     public AAMostrarNut() {
     }
@@ -71,7 +71,17 @@ public class AAMostrarNut {
         this.id_alim = id_alim;
     }
 
-    public Vector<AAMostrarNut> listaAlimANut(int id) throws ClassNotFoundException{
+    public String getObs() {
+        return obs;
+    }
+
+    public void setObs(String obs) {
+        this.obs = obs;
+    }
+    
+    
+
+    public Vector<AAMostrarNut> listaAlimANut(int id,int idU) throws ClassNotFoundException{
         Vector<AAMostrarNut> listaAlimANut = new Vector<AAMostrarNut>();
         Connection con = null;
         PreparedStatement ps = null;
@@ -81,7 +91,55 @@ public class AAMostrarNut {
             String q = "select aa.id_alimento, usu.nombre_usu, alim.nombre, alim.estado, aa.hora, aa.cantidad " +
                         "from malimentos_asignados aa, usuario usu, calimentos alim where " +
                         "(usu.id_usu = aa.id_usu) and (alim.id_alimento = aa.id_alimento) " +
-                        "and (aa.id_nutriologo = ?);";
+                        "and (aa.id_nutriologo = ?) and (aa.id_usu = ?);";
+            
+            ps = con.prepareStatement(q);
+
+            ps.setString(1, String.valueOf(id));
+            ps.setString(2, String.valueOf(idU));
+
+            rs = ps.executeQuery();
+            while(rs.next()){
+                AAMostrarNut aaNut = new AAMostrarNut();
+                aaNut.setId_alim(rs.getInt("id_alimento"));
+                aaNut.setUsu(rs.getString("usu.nombre_usu"));
+                aaNut.setAlim(rs.getString("alim.nombre"));
+                aaNut.setEstado(rs.getString("estado"));
+                aaNut.setHora(rs.getString("hora"));
+                aaNut.setCant(rs.getString("cantidad"));
+                listaAlimANut.add(aaNut);
+            }
+            
+        }catch(SQLException sq){
+            System.out.println("Error al consultar los productos");
+            System.out.println(sq.getMessage());
+            listaAlimANut = null;
+        
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                con.close();
+            
+            }catch(Exception e){
+                System.out.println("Error no encuentra la clase");
+                System.out.println(e.getMessage());
+            }
+        }
+        return listaAlimANut;
+    }
+    
+    public Vector<AAMostrarNut> listaAlimAu(int id) throws ClassNotFoundException{
+        Vector<AAMostrarNut> listaAlimANut = new Vector<AAMostrarNut>();
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            con = Conexion.getConection();
+            String q = "select aa.id_alimento, usu.nombre_usu, alim.nombre, alim.estado, aa.hora, aa.cantidad, aa.observaciones " +
+                        "from malimentos_asignados aa, usuario usu, calimentos alim where " +
+                        "(usu.id_usu = aa.id_usu) and (alim.id_alimento = aa.id_alimento) " +
+                        "and (aa.id_usu = ?);";
             
             ps = con.prepareStatement(q);
 
@@ -96,6 +154,7 @@ public class AAMostrarNut {
                 aaNut.setEstado(rs.getString("estado"));
                 aaNut.setHora(rs.getString("hora"));
                 aaNut.setCant(rs.getString("cantidad"));
+                aaNut.setObs(rs.getString("observaciones"));
                 listaAlimANut.add(aaNut);
             }
             

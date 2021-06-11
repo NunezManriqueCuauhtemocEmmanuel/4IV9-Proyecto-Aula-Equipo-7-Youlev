@@ -5,8 +5,7 @@
  */
 package Vista;
 
-import Control.accNutriologo;
-import Modelo.MEjerciciosA;
+import Modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Emiliano
  */
-public class actEjerA extends HttpServlet {
+public class iniciarSusu extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,29 +34,15 @@ public class actEjerA extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            try{
-                int id = Integer.parseInt(request.getParameter("select"));
-                HttpSession sesionNut = request.getSession();
-                int idN = (int)sesionNut.getAttribute("id");
-                int idU = (int)sesionNut.getAttribute("idS");
-
-                accNutriologo acc = new accNutriologo();
-                MEjerciciosA objEjer = acc.recogerEjercicioA(idU,idN,id);
-                
-                sesionNut.setAttribute("ejerAnt", objEjer.getId_ejer());
-                
-                sesionNut.setAttribute("objEjerA",objEjer);
-
-                if(objEjer!=null){
-
-                    response.sendRedirect("actualizarEjercicioA.jsp");
-
-                }else{
-                    response.sendRedirect("regimenNut.jsp");
-                }
-            }catch(Exception e){
-                response.sendRedirect("regimenNut.jsp");
-            }
+            int n = 1;
+            
+            Usuario usu = new Usuario();
+            usu.setId_usu(1);
+            
+            HttpSession sesionNut = request.getSession(true);
+            sesionNut.setAttribute("usuario", usu);
+            
+            response.sendRedirect("index.html");
         }
     }
 

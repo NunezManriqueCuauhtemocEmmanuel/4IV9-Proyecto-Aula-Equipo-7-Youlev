@@ -1,9 +1,10 @@
 <%-- 
-    Document   : regimenNut
-    Created on : Jun 10, 2021, 5:48:33 PM
+    Document   : mostrarEjerUsu
+    Created on : Jun 11, 2021, 6:16:06 AM
     Author     : Emiliano
 --%>
 
+<%@page import="Modelo.Usuario"%>
 <%@page import="Modelo.EAMostrarNut"%>
 <%@page import="java.util.Vector"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -54,31 +55,29 @@
         <table class="content-table">
         <thead>
             <tr>
-                <th id=""></th>
-                <th id="">Usuario</th>
                 <th id="">Ejercicio</th>
                 <th id="">Intensidad</th>
                 <th id="">Repeticiones</th>
                 <th id="">Número de Series</th>
+                <th id="">Observaciones</th>
             </tr>
         </thead>
         <tbody>
             <%
-                HttpSession sesionNut = request.getSession();
-                int idNut = (int)sesionNut.getAttribute("id");
-                int idU = (int)sesionNut.getAttribute("idS");
+                HttpSession sesionUsu = request.getSession();
+                Usuario usu = (Usuario)sesionUsu.getAttribute("usuario");
+                int idU = usu.getId_usu();
                 
-                            Vector<EAMostrarNut> listaEjerANut = new EAMostrarNut().listaEjerANut(idNut,idU);
+                            Vector<EAMostrarNut> listaEjerAu = new EAMostrarNut().listaEjerAu(idU);
 
-                    for(EAMostrarNut eaNut : listaEjerANut){
+                    for(EAMostrarNut eaUsu : listaEjerAu){
                         %>
                         <tr>
-                            <td><input type="radio" name="select" value="<%=eaNut.getId_ejer()%>" class="radio-button"></td>
-                            <td><%=eaNut.getUsu()%></td>
-                            <td><%=eaNut.getEjer()%></td>
-                            <td><%=eaNut.getInten()%></td>
-                            <td><%=eaNut.getRep()%></td>
-                            <td><%=eaNut.getNumS()%></td>
+                            <td><%=eaUsu.getEjer()%></td>
+                            <td><%=eaUsu.getInten()%></td>
+                            <td><%=eaUsu.getRep()%></td>
+                            <td><%=eaUsu.getNumS()%></td>
+                            <td><%=eaUsu.getObs()%></td>
                         </tr>
                                     <%
                     }
@@ -86,10 +85,7 @@
         </tbody>
         </table>
         <div class="accionesB">
-            <a href="agregarEjercicioA.jsp">Agregar</a>
-            <input type="submit" formaction="actEjerA" value="Actualizar" class="boton-accion" id="delete" method="POST">
-            <input type="submit" formaction="eliminarEjerA" value="Borrar" class="boton-accion" id="delete" method="POST">
-            <a href="visualizarUsuAsignados.jsp">Regresar</a>
+            
         </div>
     </form>
   </div>

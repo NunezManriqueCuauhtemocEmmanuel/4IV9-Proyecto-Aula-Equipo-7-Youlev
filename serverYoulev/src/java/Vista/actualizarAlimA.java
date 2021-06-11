@@ -6,7 +6,7 @@
 package Vista;
 
 import Control.accNutriologo;
-import Modelo.MEjerciciosA;
+import Modelo.MAlimentosA;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Emiliano
  */
-public class actEjerA extends HttpServlet {
+public class actualizarAlimA extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,29 +35,37 @@ public class actEjerA extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            try{
-                int id = Integer.parseInt(request.getParameter("select"));
-                HttpSession sesionNut = request.getSession();
-                int idN = (int)sesionNut.getAttribute("id");
-                int idU = (int)sesionNut.getAttribute("idS");
+            String alim,hora,cant,obs;
+            int alimAnt;
+            
+            alim = request.getParameter("alimento");
+            hora = request.getParameter("hora");
+            cant = request.getParameter("cantidad");
+            obs = request.getParameter("observaciones");
+            
+            HttpSession sesionNut = request.getSession();
+            int idN = (int)sesionNut.getAttribute("id");
+            int idU = (int)sesionNut.getAttribute("idS");
+            
+            accNutriologo acc = new accNutriologo();
 
-                accNutriologo acc = new accNutriologo();
-                MEjerciciosA objEjer = acc.recogerEjercicioA(idU,idN,id);
-                
-                sesionNut.setAttribute("ejerAnt", objEjer.getId_ejer());
-                
-                sesionNut.setAttribute("objEjerA",objEjer);
+                    MAlimentosA objAlim = new MAlimentosA();
 
-                if(objEjer!=null){
+                    objAlim.setId_usu(idU);
+                    objAlim.setId_nut(idN);
+                    objAlim.setId_alimento(Integer.parseInt(alim));
+                    objAlim.setHora(hora);
+                    objAlim.setCant(cant);
+                    objAlim.setObs(obs);
 
-                    response.sendRedirect("actualizarEjercicioA.jsp");
-
-                }else{
-                    response.sendRedirect("regimenNut.jsp");
-                }
-            }catch(Exception e){
-                response.sendRedirect("regimenNut.jsp");
-            }
+                    alimAnt = (int)sesionNut.getAttribute("alimAnt");
+                    
+                    int estatus = acc.actualizarAlimentoA(objAlim,alimAnt);
+                    if(estatus > 0){
+                        response.sendRedirect("planNut.jsp");
+                    }else{
+                        response.sendRedirect("planNut.jsp");
+                    }
         }
     }
 

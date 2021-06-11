@@ -17,7 +17,7 @@ import java.util.Vector;
  * @author Emiliano
  */
 public class EAMostrarNut {
-    private String usu,ejer,inten,rep;
+    private String usu,ejer,inten,rep,obs;
     private int numS,id_ejer;
 
     public EAMostrarNut() {
@@ -70,6 +70,14 @@ public class EAMostrarNut {
     public void setId_ejer(int id_ejer) {
         this.id_ejer = id_ejer;
     }
+
+    public String getObs() {
+        return obs;
+    }
+
+    public void setObs(String obs) {
+        this.obs = obs;
+    }
     
     public Vector<EAMostrarNut> listaEjerANut(int id,int idU) throws ClassNotFoundException{
         Vector<EAMostrarNut> listaEjerANut = new Vector<EAMostrarNut>();
@@ -117,5 +125,52 @@ public class EAMostrarNut {
             }
         }
         return listaEjerANut;
+    }
+    
+    public Vector<EAMostrarNut> listaEjerAu(int id) throws ClassNotFoundException{
+        Vector<EAMostrarNut> listaEjerAu = new Vector<EAMostrarNut>();
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            con = Conexion.getConection();
+            String q = "select ea.id_ejercicio, ejer.nombre, inten.descripcion, repeticiones, num_series, observaciones from " +
+                        "usuario usu, mejercicios_asignados ea, cejercicios ejer, cintensidad inten " +
+                        "where (ejer.id_ejercicio = ea.id_ejercicio) and (ea.id_usu = usu.id_usu) " +
+                        "and (inten.id_intensidad = ea.id_intensidad) and (ea.id_usu = ?);";
+            
+            ps = con.prepareStatement(q);
+
+            ps.setString(1, String.valueOf(id));
+
+            rs = ps.executeQuery();
+            while(rs.next()){
+                EAMostrarNut eaNut = new EAMostrarNut();
+                eaNut.setId_ejer(rs.getInt("id_ejercicio"));
+                eaNut.setEjer(rs.getString("ejer.nombre"));
+                eaNut.setInten(rs.getString("descripcion"));
+                eaNut.setRep(rs.getString("repeticiones"));
+                eaNut.setNumS(rs.getInt("num_series"));
+                eaNut.setObs(rs.getString("ea.observaciones"));
+                listaEjerAu.add(eaNut);
+            }
+            
+        }catch(SQLException sq){
+            System.out.println("Error al consultar los productos");
+            System.out.println(sq.getMessage());
+            listaEjerAu = null;
+        
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                con.close();
+            
+            }catch(Exception e){
+                System.out.println("Error no encuentra la clase");
+                System.out.println(e.getMessage());
+            }
+        }
+        return listaEjerAu;
     }
 }
