@@ -55,9 +55,6 @@ public class actualizarAlimentos extends HttpServlet {
                     objAlim.setEstado(estado);
 
                     int estatus = acc.actualizarAlimento(objAlim);
-
-                    HttpSession sesionAlim = request.getSession();
-                    sesionAlim.invalidate();
                     
                     if(estatus > 0){
                         response.sendRedirect("cAlimentos.jsp?act=false");

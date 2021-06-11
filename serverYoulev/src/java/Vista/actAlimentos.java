@@ -42,8 +42,6 @@ public class actAlimentos extends HttpServlet {
 
                 CAlimentos objAlim = acc.recogerAlimento(id);
                 
-                HttpSession sesionAlim = request.getSession(true);
-                sesionAlim.setAttribute("alim", id);
 
                 if(objAlim!=null){
 

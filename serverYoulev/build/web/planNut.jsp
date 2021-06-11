@@ -4,6 +4,8 @@
     Author     : Emiliano
 --%>
 
+<%@page import="Modelo.AAMostrarNut"%>
+<%@page import="java.util.Vector"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -54,12 +56,10 @@
             <tr>
                 <th id=""></th>
                 <th id="">Nombre</th>
-                <th id="">Fecha de Nacimiento</th>
-                <th id="">Diabetes</th>
-                <th id="">Cancer</th>
-                <th id="">Peso</th>
-                <th id="">Estatura</th>
-                <th id="">IMC</th>
+                <th id="">Alimento</th>
+                <th id="">Estado</th>
+                <th id="">Hora</th>
+                <th id="">Cant</th>
             </tr>
         </thead>
         <tbody>
@@ -67,19 +67,17 @@
                 HttpSession sesionNut = request.getSession();
                 int idNut = (int)sesionNut.getAttribute("id");
                 
-                            Vector<UsuMostrarNut> listaUsuariosNut = new UsuMostrarNut().listaUsuariosNut(idNut);
+                            Vector<AAMostrarNut> listaAlimANut = new AAMostrarNut().listaAlimANut(idNut);
 
-                    for(UsuMostrarNut usu : listaUsuariosNut){
+                    for(AAMostrarNut alimen : listaAlimANut){
                         %>
                         <tr>
-                            <td><input type="radio" name="select" value="<%=usu.getId()%>" class="radio-button"></td>
-                            <td><%=usu.getNom()%></td>
-                            <td><%=usu.getFn()%></td>
-                            <td><%=usu.getDia()%></td>
-                            <td><%=usu.getCan()%></td>
-                            <td><%=usu.getPeso()%></td>
-                            <td><%=usu.getEst()%></td>
-                            <td><%=usu.getImc()%></td>
+                            <td><input type="radio" name="select" value="<%=alimen.getId_alim()%>" class="radio-button"></td>
+                            <td><%=alimen.getUsu()%></td>
+                            <td><%=alimen.getAlim()%></td>
+                            <td><%=alimen.getEstado()%></td>
+                            <td><%=alimen.getHora()%></td>
+                            <td><%=alimen.getCant()%></td>
                         </tr>
                                     <%
                     }

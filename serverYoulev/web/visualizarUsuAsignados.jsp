@@ -68,6 +68,7 @@
             <%
                 HttpSession sesionNut = request.getSession();
                 int idNut = (int)sesionNut.getAttribute("id");
+                System.out.println(idNut);
                 
                             Vector<UsuMostrarNut> listaUsuariosNut = new UsuMostrarNut().listaUsuariosNut(idNut);
 

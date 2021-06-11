@@ -55,8 +55,6 @@ public class actualizarEjercicios extends HttpServlet {
 
                     int estatus = acc.actualizarEjercicio(objEjer);
                     
-                    HttpSession sesionEjer = request.getSession();
-                    sesionEjer.invalidate();
 
                     if(estatus > 0){
                         response.sendRedirect("cEjercicios.jsp?act=false");

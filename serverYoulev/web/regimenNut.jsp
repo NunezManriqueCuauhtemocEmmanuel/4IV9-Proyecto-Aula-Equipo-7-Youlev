@@ -4,6 +4,8 @@
     Author     : Emiliano
 --%>
 
+<%@page import="Modelo.EAMostrarNut"%>
+<%@page import="java.util.Vector"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -47,39 +49,38 @@
   </header>
 <section class="home" id="home">
   <div class="content">
-    <h3 id="titulo">Lista de <span>Usuarios</span></h3>
+    <h3 id="titulo">Lista de <span>Ejercicios</span></h3>
     <form>
         <table class="content-table">
         <thead>
             <tr>
                 <th id=""></th>
-                <th id="">Nombre</th>
-                <th id="">Fecha de Nacimiento</th>
-                <th id="">Diabetes</th>
-                <th id="">Cancer</th>
-                <th id="">Peso</th>
-                <th id="">Estatura</th>
-                <th id="">IMC</th>
+                <th id="">Usuario</th>
+                <th id="">Ejercicio</th>
+                <th id="">Intensidad</th>
+                <th id="">Repeticiones</th>
+                <th id="">Número de Series</th>
             </tr>
         </thead>
         <tbody>
             <%
                 HttpSession sesionNut = request.getSession();
                 int idNut = (int)sesionNut.getAttribute("id");
+                int idU = (int)sesionNut.getAttribute("idS");
+                System.out.println(idNut);
+                System.out.println(idU);
                 
-                            Vector<UsuMostrarNut> listaUsuariosNut = new UsuMostrarNut().listaUsuariosNut(idNut);
+                            Vector<EAMostrarNut> listaEjerANut = new EAMostrarNut().listaEjerANut(idNut,idU);
 
-                    for(UsuMostrarNut usu : listaUsuariosNut){
+                    for(EAMostrarNut eaNut : listaEjerANut){
                         %>
                         <tr>
-                            <td><input type="radio" name="select" value="<%=usu.getId()%>" class="radio-button"></td>
-                            <td><%=usu.getNom()%></td>
-                            <td><%=usu.getFn()%></td>
-                            <td><%=usu.getDia()%></td>
-                            <td><%=usu.getCan()%></td>
-                            <td><%=usu.getPeso()%></td>
-                            <td><%=usu.getEst()%></td>
-                            <td><%=usu.getImc()%></td>
+                            <td><input type="radio" name="select" value="<%=eaNut.getId_ejer()%>" class="radio-button"></td>
+                            <td><%=eaNut.getUsu()%></td>
+                            <td><%=eaNut.getEjer()%></td>
+                            <td><%=eaNut.getInten()%></td>
+                            <td><%=eaNut.getRep()%></td>
+                            <td><%=eaNut.getNumS()%></td>
                         </tr>
                                     <%
                     }
@@ -87,8 +88,10 @@
         </tbody>
         </table>
         <div class="accionesB">
-            <input type="submit" formaction="cargarPlan" value="Plan de Alimentacion" class="boton-accion" id="edit" method="POST">
-            <input type="submit" formaction="cargarRegimen" value="Regimen de Ejercicios" class="boton-accion" id="delete" method="POST">
+            <a href="agregarEjercicioA.jsp">Agregar</a>
+            <input type="submit" formaction="actEjerA" value="Actualizar" class="boton-accion" id="delete" method="POST">
+            <input type="submit" formaction="eliminarEjerA" value="Borrar" class="boton-accion" id="delete" method="POST">
+            <a href="visualizarUsuAsignados.jsp">Regresar</a>
         </div>
     </form>
   </div>

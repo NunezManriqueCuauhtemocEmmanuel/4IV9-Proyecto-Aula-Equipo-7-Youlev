@@ -46,8 +46,6 @@ public class actualizarIntensidad extends HttpServlet {
             
             CIntensidad busc = acc.repetidosIntensidades(intensidad);
             
-            HttpSession sesionInt = request.getSession();
-            sesionInt.invalidate();
             
                 if(busc==null){
                     CIntensidad objInt = new CIntensidad();

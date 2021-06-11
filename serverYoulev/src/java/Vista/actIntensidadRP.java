@@ -42,8 +42,6 @@ public class actIntensidadRP extends HttpServlet {
 
                 CIntensidad objInten = acc.recogerIntensidad(id);
                 
-                HttpSession sesionInt = request.getSession(true);
-                sesionInt.setAttribute("inten", id);
 
                 if(objInten!=null){
 

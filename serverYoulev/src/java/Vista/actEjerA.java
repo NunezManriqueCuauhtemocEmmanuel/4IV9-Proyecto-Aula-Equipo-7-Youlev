@@ -6,7 +6,7 @@
 package Vista;
 
 import Control.accNutriologo;
-import Modelo.CEjercicios;
+import Modelo.MEjerciciosA;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Emiliano
  */
-public class actEjercicios extends HttpServlet {
+public class actEjerA extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,22 +37,26 @@ public class actEjercicios extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             try{
                 int id = Integer.parseInt(request.getParameter("select"));
+                HttpSession sesionNut = request.getSession();
+                int idN = (int)sesionNut.getAttribute("id");
+                int idU = (int)sesionNut.getAttribute("idS");
 
                 accNutriologo acc = new accNutriologo();
-
-                CEjercicios objEjer = acc.recogerEjercicio(id);
+                MEjerciciosA objEjer = acc.recogerEjercicioA(idU,idN,id);
                 
-
+                sesionNut.setAttribute("intenAnt", objEjer.getId_ejer());
+                
+                sesionNut.setAttribute("objEjerA",objEjer);
 
                 if(objEjer!=null){
 
-                        response.sendRedirect("cEjercicios.jsp?act=true");
+                    response.sendRedirect("actualizarEjercicioA.jsp");
 
                 }else{
-                    response.sendRedirect("cEjercicios.jsp?act=false");
+                    response.sendRedirect("actualizarEjercicioA.jsp");
                 }
             }catch(Exception e){
-                response.sendRedirect("cEjercicios.jsp?act=false");
+                response.sendRedirect("regimenNut.jsp");
             }
         }
     }

@@ -60,6 +60,26 @@
         <servlet-name>cargarRegimen</servlet-name>
         <servlet-class>Vista.cargarRegimen</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>agregarEjerA</servlet-name>
+        <servlet-class>Vista.agregarEjerA</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>eliminarEjerA</servlet-name>
+        <servlet-class>Vista.eliminarEjerA</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cerrarSesionProvisional</servlet-name>
+        <servlet-class>Vista.cerrarSesionProvisional</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>actEjerA</servlet-name>
+        <servlet-class>Vista.actEjerA</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>actualizarEjerA</servlet-name>
+        <servlet-class>Vista.actualizarEjerA</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>actIntensidadRP</servlet-name>
         <url-pattern>/actIntensidadRP</url-pattern>
@@ -119,6 +139,26 @@
     <servlet-mapping>
         <servlet-name>cargarRegimen</servlet-name>
         <url-pattern>/cargarRegimen</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregarEjerA</servlet-name>
+        <url-pattern>/agregarEjerA</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminarEjerA</servlet-name>
+        <url-pattern>/eliminarEjerA</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cerrarSesionProvisional</servlet-name>
+        <url-pattern>/cerrarSesionProvisional</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>actEjerA</servlet-name>
+        <url-pattern>/actEjerA</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>actualizarEjerA</servlet-name>
+        <url-pattern>/actualizarEjerA</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

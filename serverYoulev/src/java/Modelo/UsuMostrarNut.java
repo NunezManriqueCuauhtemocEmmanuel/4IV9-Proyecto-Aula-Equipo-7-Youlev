@@ -95,7 +95,7 @@ public class UsuMostrarNut {
         ResultSet rs = null;
         try{
             con = Conexion.getConection();
-            String q = "select usu.id_usu, nombre, Fecha_Nacimiento, tipo_diabetes, sitio_origen, peso, imc, estatura " +
+            String q = "select usu.id_usu, nombre_usu, Fecha_Nacimiento, tipo_diabetes, sitio_origen, peso, imc, estatura " +
                         "from usuario usu, mdatos_medicos dm, ctipo_diabetes dia, ctipo_cancer can " +
                         "where (dm.id_usu = usu.id_usu) and (dm.id_diabetes = dia.id_diabetes) " +
                         "and (dm.id_cancer = can.id_cancer) and (usu.id_nutriologo = ?);";
@@ -108,7 +108,7 @@ public class UsuMostrarNut {
             while(rs.next()){
                 UsuMostrarNut usu = new UsuMostrarNut();
                 usu.setId(rs.getInt("id_usu"));
-                usu.setNom(rs.getString("nombre"));
+                usu.setNom(rs.getString("nombre_usu"));
                 usu.setFn(rs.getString("Fecha_Nacimiento"));
                 usu.setDia(rs.getString("tipo_diabetes"));
                 usu.setCan(rs.getString("sitio_origen"));

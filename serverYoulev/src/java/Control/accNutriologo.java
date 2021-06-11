@@ -23,7 +23,7 @@ public class accNutriologo {
             
             Connection con = Conexion.getConection();
             String q = "insert into mejercicios_asignados(id_usu,id_nutriologo,id_ejercicio,id_intensidad,fecha,repeticiones,num_series,observaciones) "
-                    + "values(?,?,?,?,?,?,?,?)";
+                    + "values(?,?,?,?,CURDATE(),?,?,?)";
             
             PreparedStatement ps = con.prepareStatement(q);
             
@@ -31,10 +31,9 @@ public class accNutriologo {
             ps.setString(2, String.valueOf(ejerA.getId_nut()));
             ps.setString(3, String.valueOf(ejerA.getId_ejer()));
             ps.setString(4, String.valueOf(ejerA.getId_inten()));
-            ps.setString(5, ejerA.getFecha());
-            ps.setString(6, ejerA.getRep());
-            ps.setString(7, String.valueOf(ejerA.getNumS()));
-            ps.setString(8, ejerA.getObs());
+            ps.setString(5, ejerA.getRep());
+            ps.setString(6, String.valueOf(ejerA.getNumS()));
+            ps.setString(7, ejerA.getObs());
             
             estatus = ps.executeUpdate();
             System.out.println("Registro de ejercicio asignado exitoso");
@@ -48,20 +47,19 @@ public class accNutriologo {
         
     }
     
-    public MEjerciciosA repetidosEjerciciosA(String idUsu,String idNut,String idEjer, String idInten) throws ClassNotFoundException{
+    public MEjerciciosA repetidosEjerciciosA(String idUsu,String idNut,String idEjer) throws ClassNotFoundException{
         MEjerciciosA objEjerA = null;
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{
             con = Conexion.getConection();
-            String q = "select * from mejercicios_asignados where id_usu = ? AND id_nutriologo = ? AND id_ejercicio = ? AND id_intensidad = ?";
+            String q = "select * from mejercicios_asignados where id_usu = ? AND id_nutriologo = ? AND id_ejercicio = ?";
             ps = con.prepareStatement(q);
             
             ps.setString(1, idUsu);
             ps.setString(2, idNut);
             ps.setString(3, idEjer);
-            ps.setString(4, idInten);
             
             rs = ps.executeQuery();
             while(rs.next()){
@@ -96,18 +94,17 @@ public class accNutriologo {
         return objEjerA;
     }
     
-    public static int eliminarEjercicioA(int idUsu,int idNut,int idEjer, int idInten){
+    public static int eliminarEjercicioA(int idUsu,int idNut,int idEjer){
         int estatus = 0;
         try{
             Connection con = Conexion.getConection();
-            String q = "delete from mejercicios_asignados where id_usu = ? AND id_nutriologo = ? AND id_ejercicio = ? AND id_intensidad = ?";
+            String q = "delete from mejercicios_asignados where id_usu = ? AND id_nutriologo = ? AND id_ejercicio = ?";
             
             PreparedStatement ps = con.prepareStatement(q);
             
             ps.setString(1, String.valueOf(idUsu));
             ps.setString(2, String.valueOf(idNut));
             ps.setString(3, String.valueOf(idEjer));
-            ps.setString(4, String.valueOf(idInten));
             
             estatus = ps.executeUpdate();
             System.out.println("Eliminar producto ejercicio asignado");
@@ -121,19 +118,19 @@ public class accNutriologo {
         
     }
     
-    public MEjerciciosA recogerEjercicioA(int idUsu,int idNut,int idEjer, int idInten) throws ClassNotFoundException{
+    public MEjerciciosA recogerEjercicioA(int idUsu,int idNut,int idEjer) throws ClassNotFoundException{
         MEjerciciosA objEjerA = null;
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{
             con = Conexion.getConection();
-            String q = "select * from mejercicios_asignados where id_usu = ? AND id_nutriologo = ? AND id_ejercicio = ? AND id_intensidad = ?";
+            String q = "select * from mejercicios_asignados where id_usu = ? AND id_nutriologo = ? AND id_ejercicio = ?";
+
             ps = con.prepareStatement(q);
             ps.setString(1, String.valueOf(idUsu));
             ps.setString(2, String.valueOf(idNut));
             ps.setString(3, String.valueOf(idEjer));
-            ps.setString(4, String.valueOf(idInten));
             rs = ps.executeQuery();
             while(rs.next()){
                 objEjerA = new MEjerciciosA();
@@ -163,43 +160,41 @@ public class accNutriologo {
             
             }
         }
+        
         return objEjerA;
     }
     
-    public static int actualizarEjercicioA(MEjerciciosA ejerA){
+    public static int actualizarEjercicioA(MEjerciciosA ejerA,int intenAnt){
         int estatus = 0;
         boolean bool = false;
         try{
             accNutriologo acc = new accNutriologo();
+
+            MEjerciciosA rec = acc.recogerEjercicioA(ejerA.getId_usu(),ejerA.getId_nut(),intenAnt);
             
-            MEjerciciosA rec = acc.recogerEjercicioA(ejerA.getId_usu(),ejerA.getId_nut(),ejerA.getId_ejer(),ejerA.getId_inten());
-             
-            if(rec.getId_usu()==ejerA.getId_usu()&rec.getId_nut()==ejerA.getId_nut()&rec.getId_ejer()==ejerA.getId_ejer()&rec.getId_inten()==ejerA.getId_inten()){
+            if(rec.getId_usu()==ejerA.getId_usu()&rec.getId_nut()==ejerA.getId_nut()&rec.getId_ejer()==ejerA.getId_ejer()){
                 bool = true;
             }else{
-                MEjerciciosA rep = acc.repetidosEjerciciosA(String.valueOf(ejerA.getId_usu()),String.valueOf(ejerA.getId_nut()),String.valueOf(ejerA.getId_ejer()),String.valueOf(ejerA.getId_inten()));
+                MEjerciciosA rep = acc.repetidosEjerciciosA(String.valueOf(ejerA.getId_usu()),String.valueOf(ejerA.getId_nut()),String.valueOf(ejerA.getId_ejer()));
                 if(rep==null){
                     bool = true;
                 }
             }
-            
             if(bool){
                 Connection con = Conexion.getConection();
-                String q = "update mejercicios_asignados set id_ejercicio = ?, id_intensidad = ?, fecha = ?, repeticiones = ?, num_series = ?, observaciones = ?"
-                        + " where id_usu = ? AND id_nutriologo = ? AND id_ejercicio = ? AND id_intensidad = ?";
+                String q = "update mejercicios_asignados set id_ejercicio = ?, id_intensidad = ?, fecha = CURDATE(), repeticiones = ?, num_series = ?, observaciones = ?"
+                        + " where (id_usu = ?) AND (id_nutriologo = ?) AND (id_ejercicio = ?)";
 
                 PreparedStatement ps = con.prepareStatement(q);
 
                 ps.setString(1, String.valueOf(ejerA.getId_ejer()));
                 ps.setString(2, String.valueOf(ejerA.getId_inten()));
-                ps.setString(3, String.valueOf(ejerA.getFecha()));
-                ps.setString(4, String.valueOf(ejerA.getRep()));
-                ps.setString(5, String.valueOf(ejerA.getNumS()));
-                ps.setString(6, String.valueOf(ejerA.getObs()));
-                ps.setString(7, String.valueOf(ejerA.getId_usu()));
-                ps.setString(8, String.valueOf(ejerA.getId_nut()));
-                ps.setString(9, String.valueOf(ejerA.getId_ejer()));
-                ps.setString(10, String.valueOf(ejerA.getId_inten()));
+                ps.setString(3, String.valueOf(ejerA.getRep()));
+                ps.setString(4, String.valueOf(ejerA.getNumS()));
+                ps.setString(5, String.valueOf(ejerA.getObs()));
+                ps.setString(6, String.valueOf(ejerA.getId_usu()));
+                ps.setString(7, String.valueOf(ejerA.getId_nut()));
+                ps.setString(8, String.valueOf(intenAnt));
 
                 estatus = ps.executeUpdate();
                 System.out.println("Actualizacion ejercicio asignado exitosa");

@@ -38,8 +38,8 @@ public class cargarPlan extends HttpServlet {
 
                 id = Integer.parseInt(request.getParameter("select"));
 
-                HttpSession sesionUsuSel = request.getSession(true);
-                sesionUsuSel.setAttribute("id", id);
+                HttpSession sesionUsuSel = request.getSession();
+                sesionUsuSel.setAttribute("idS", id);
 
                 response.sendRedirect("planNut.jsp");
             }catch(Exception e){

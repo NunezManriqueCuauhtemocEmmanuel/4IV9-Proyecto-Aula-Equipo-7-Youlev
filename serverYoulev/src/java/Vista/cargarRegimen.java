@@ -38,8 +38,8 @@ public class cargarRegimen extends HttpServlet {
 
                 id = Integer.parseInt(request.getParameter("select"));
 
-                HttpSession sesionUsuSel = request.getSession(true);
-                sesionUsuSel.setAttribute("id", id);
+                HttpSession sesionUsuSel = request.getSession();
+                sesionUsuSel.setAttribute("idS", id);
 
                 response.sendRedirect("regimenNut.jsp");
             }catch(Exception e){

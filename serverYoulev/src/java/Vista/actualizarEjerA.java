@@ -6,7 +6,7 @@
 package Vista;
 
 import Control.accNutriologo;
-import Modelo.CEjercicios;
+import Modelo.MEjerciciosA;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Emiliano
  */
-public class actEjercicios extends HttpServlet {
+public class actualizarEjerA extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,25 +35,39 @@ public class actEjercicios extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            try{
-                int id = Integer.parseInt(request.getParameter("select"));
+            String ejer,inten,rep,numS,obs;
+            int intenAnt;
+            
+            ejer = request.getParameter("ejercicio");
+            inten = request.getParameter("intensidad");
+            rep = request.getParameter("repeticiones");
+            numS = request.getParameter("numseries");
+            obs = request.getParameter("observaciones");
+            
+            HttpSession sesionNut = request.getSession();
+            int idN = (int)sesionNut.getAttribute("id");
+            int idU = (int)sesionNut.getAttribute("idS");
+            
+            accNutriologo acc = new accNutriologo();
 
-                accNutriologo acc = new accNutriologo();
+                    MEjerciciosA objEjer = new MEjerciciosA();
 
-                CEjercicios objEjer = acc.recogerEjercicio(id);
-                
+                    objEjer.setId_usu(idU);
+                    objEjer.setId_nut(idN);
+                    objEjer.setId_ejer(Integer.parseInt(ejer));
+                    objEjer.setId_inten(Integer.parseInt(inten));
+                    objEjer.setRep(rep);
+                    objEjer.setNumS(Integer.parseInt(numS));
+                    objEjer.setObs(obs);
 
-
-                if(objEjer!=null){
-
-                        response.sendRedirect("cEjercicios.jsp?act=true");
-
-                }else{
-                    response.sendRedirect("cEjercicios.jsp?act=false");
-                }
-            }catch(Exception e){
-                response.sendRedirect("cEjercicios.jsp?act=false");
-            }
+                    intenAnt = (int)sesionNut.getAttribute("intenAnt");
+                    
+                    int estatus = acc.actualizarEjercicioA(objEjer,intenAnt);
+                    if(estatus > 0){
+                        response.sendRedirect("regimenNut.jsp");
+                    }else{
+                        response.sendRedirect("regimenNut.jsp");
+                    }
         }
     }
 

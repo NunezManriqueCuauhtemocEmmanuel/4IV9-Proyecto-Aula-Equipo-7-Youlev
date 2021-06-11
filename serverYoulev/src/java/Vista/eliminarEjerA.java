@@ -6,7 +6,6 @@
 package Vista;
 
 import Control.accNutriologo;
-import Modelo.CEjercicios;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Emiliano
  */
-public class actEjercicios extends HttpServlet {
+public class eliminarEjerA extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,24 +34,23 @@ public class actEjercicios extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            try{
+            try{  
                 int id = Integer.parseInt(request.getParameter("select"));
-
-                accNutriologo acc = new accNutriologo();
-
-                CEjercicios objEjer = acc.recogerEjercicio(id);
+                HttpSession sesionNut = request.getSession();
+                int idN = (int)sesionNut.getAttribute("id");
+                int idU = (int)sesionNut.getAttribute("idS");
                 
 
+                accNutriologo acc = new accNutriologo();
+                int estatus = acc.eliminarEjercicioA(idU,idN,id);
 
-                if(objEjer!=null){
-
-                        response.sendRedirect("cEjercicios.jsp?act=true");
-
+                if(estatus > 0){
+                    response.sendRedirect("regimenNut.jsp");
                 }else{
-                    response.sendRedirect("cEjercicios.jsp?act=false");
+                    response.sendRedirect("regimenNut.jsp");
                 }
             }catch(Exception e){
-                response.sendRedirect("cEjercicios.jsp?act=false");
+                response.sendRedirect("regimenNut.jsp");
             }
         }
     }
