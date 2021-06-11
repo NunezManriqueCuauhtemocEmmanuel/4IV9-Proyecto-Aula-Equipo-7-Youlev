@@ -100,6 +100,10 @@
         <servlet-name>iniciarSusu</servlet-name>
         <servlet-class>Vista.iniciarSusu</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>escNutri</servlet-name>
+        <servlet-class>Vista.escNutri</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>actIntensidadRP</servlet-name>
         <url-pattern>/actIntensidadRP</url-pattern>
@@ -199,6 +203,10 @@
     <servlet-mapping>
         <servlet-name>iniciarSusu</servlet-name>
         <url-pattern>/iniciarSusu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>escNutri</servlet-name>
+        <url-pattern>/escNutri</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

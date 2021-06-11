@@ -5,6 +5,10 @@
  */
 package Modelo;
 
+import Control.Conexion;
+import java.sql.*;
+import java.util.Vector;
+
 /**
  *
  * @author Emiliano
@@ -103,5 +107,44 @@ public class Nutriologo {
 
     public void setTel(long tel) {
         this.tel = tel;
+    }
+    
+    public Vector<Nutriologo> listaNutriologos() throws ClassNotFoundException{
+        Vector<Nutriologo> listaNutriologos = new Vector<Nutriologo>();
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            con = Conexion.getConection();
+            String q = "select * from nutriologo";
+            
+            ps = con.prepareStatement(q);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Nutriologo nutri = new Nutriologo();
+                nutri.setId(rs.getInt("id_nutriologo"));
+                nutri.setNombre(rs.getString("nombre"));
+                nutri.setAppat(rs.getString("apellido_pat"));
+                nutri.setApmat(rs.getString("apellido_mat"));
+                listaNutriologos.add(nutri);
+            }
+            
+        }catch(SQLException sq){
+            System.out.println("Error al consultar los nutriologos");
+            System.out.println(sq.getMessage());
+            listaNutriologos = null;
+        
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                con.close();
+            
+            }catch(Exception e){
+                System.out.println("Error no encuentra la clase");
+                System.out.println(e.getMessage());
+            }
+        }
+        return listaNutriologos;
     }
 }
