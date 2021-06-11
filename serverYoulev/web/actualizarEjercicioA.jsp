@@ -16,8 +16,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asignar Plan</title>
-    <link href="serverYoulev/web/css/asignarregimen.css" rel="stylesheet" type="text/css">
-    <link href="serverYoulev/web/css/estilos.css" rel="stylesheet" type="text/css">
+    <link href="css/asignarregimen.css" rel="stylesheet" type="text/css">
+    <link href="css/estilos.css" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/a78d4ea77b.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -61,8 +61,8 @@
         MEjerciciosA objEjer = (MEjerciciosA)sesionNut.getAttribute("objEjerA");
     %>
     <div class="in-flex-1">
-        <form name="formulario" onsubmit="return validar(this)" action="actualizarEjerA" method="POST">
-        <h3 id="titulo">Ingresar plan</h3>
+        <form name="formulario" onsubmit="return ValidaDatos()" action="actualizarEjerA" method="POST">
+        <h3 id="titulo">Ingresar Regimen</h3>
         <div class="contenedor-inputs">
           <label id="titulo">Ejercicio</label>
           <select name="ejercicio" class="combobox" required>
@@ -136,5 +136,6 @@
     <script src="js/usuarionuevo.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/app.js"></script>
+    <script src="js/validar.js"></script>
 </body>
 </html>
