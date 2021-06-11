@@ -5,8 +5,8 @@
  */
 package Vista;
 
-import Control.AccionesRyL;
-import Modelo.Usuario;
+import Control.AccionesNutriologo;
+import Modelo.Nutriologo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author adrai
  */
-public class iniciarSesion extends HttpServlet {
+public class iniciarSesionN extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,29 +37,28 @@ public class iniciarSesion extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           
             String usu,pass;
             
             usu = request.getParameter("usuario");
             pass = request.getParameter("pass");
           
-            Usuario objUsu = new Usuario();
+            Nutriologo objNutri = new Nutriologo();
             
             if(usu.equals("adminSante")&&pass.equals("SeV8625")){ 
                 
-                objUsu.setUsu(usu);
-                objUsu.setPass(pass);
+                objNutri.setUsu(usu); 
+                objNutri.setPass(pass);
                 HttpSession sesionusu = request.getSession(true);
-                sesionusu.setAttribute("usuario", objUsu);
+                sesionusu.setAttribute("id", objNutri);
                 response.sendRedirect("");
             }else{ 
-                AccionesRyL acc = new AccionesRyL();
-                objUsu = acc.verificarUsuario(usu,pass); 
+                AccionesNutriologo acc = new AccionesNutriologo();
+                objNutri = acc.verificarNutriologo(usu,pass); 
   
-                if(objUsu!=null){
+                if(objNutri!=null){
                     HttpSession sesionusu = request.getSession(true);
-                    sesionusu.setAttribute("usuario", objUsu);
-                    response.sendRedirect("paginausu.html");
+                    sesionusu.setAttribute("id", objNutri.getId_nutri()); 
+                    response.sendRedirect("paginan.html");
 
                 }else{
                     //el usuario no esta registrado
@@ -84,7 +83,7 @@ public class iniciarSesion extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(iniciarSesion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(iniciarSesionN.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -102,7 +101,7 @@ public class iniciarSesion extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(iniciarSesion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(iniciarSesionN.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -6,9 +6,11 @@
 package Vista;
 
 import Control.AccionesRyL;
+import Modelo.MDatos_medicos;
 import Modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -36,7 +38,7 @@ public class registrarUsu extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String nom,appat,apmat,fn,sex,tel,email,usu,pass;
+            String nom,appat,apmat,fn,sex,tel,email,usu,pass,can,diab,peso,estatura;
             
             nom = request.getParameter("nombre");
             appat = request.getParameter("appa");
@@ -47,6 +49,10 @@ public class registrarUsu extends HttpServlet {
             tel = request.getParameter("telefono");
             usu = request.getParameter("user");
             pass = request.getParameter("contrasena");
+            can = request.getParameter("cancer");
+            diab = request.getParameter("diabetes");
+            peso = request.getParameter("peso");
+            estatura = request.getParameter("estatura");
             
             AccionesRyL acc = new AccionesRyL();
             
@@ -55,7 +61,7 @@ public class registrarUsu extends HttpServlet {
             if(usu.equals("adminSante")){
                 
             }else{
-                if(busc==null){
+                if(busc==null){ 
                     Usuario objUsu = new Usuario();
 
                     objUsu.setNom(nom);
@@ -66,17 +72,31 @@ public class registrarUsu extends HttpServlet {
                     objUsu.setEmail(email);
                     objUsu.setTel(Integer.parseInt(tel));
                     objUsu.setUsu(usu);
-                    objUsu.setPass(pass);
-
-                    int estatus = AccionesRyL.registrarUsuario(objUsu);
-
-
-                    if(estatus > 0){
+                    objUsu.setPass(pass); 
+                    
+                       
+                    int estatus = AccionesRyL.registrarUsuario(objUsu); 
+                  
+                        objUsu = acc.verificarUsuario(usu,pass); 
+                        MDatos_medicos objDatm = new MDatos_medicos();
+                        
+                        objDatm.setId_usu(objUsu.getId_usu());
+                        objDatm.setId_can(Integer.parseInt(can));
+                        objDatm.setId_diab(Integer.parseInt(diab));
+                        objDatm.setPeso(Float.parseFloat(peso));
+                        objDatm.setEstatura(Float.parseFloat(estatura));
+                        float imc = Float.parseFloat(peso)/(Float.parseFloat(estatura)/100)*(Float.parseFloat(estatura)/100); 
+                        objDatm.setImc(imc);
+                        /*
+                        Peso kg/estatura m^2 
+                        */
+                      
+                       int dato = acc.registrarMDatos_medicos(objDatm); 
+                        
+                       
                         response.sendRedirect("inicio.jsp");
+                    
                     }else{
-                        response.sendRedirect("index.html");
-                    }
-                }else{
                         response.sendRedirect("registrou.jsp");
                 }
             }

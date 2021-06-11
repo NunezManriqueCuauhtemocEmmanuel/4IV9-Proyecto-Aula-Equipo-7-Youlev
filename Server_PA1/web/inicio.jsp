@@ -96,7 +96,7 @@
             <input class="controls" type="text" name="usuario" value="" placeholder="Usuario">
             <input class="controls" type="password" name="pass" value="" placeholder="Contraseña">
             <input class="buttons" formaction="iniciarSesion" type="submit" name="" value="Ingresar Usuario">
-            <input class="buttons" type="submit" name="" value="Ingresar Nutriologo">
+            <input class="buttons" formaction="iniciarSesionN" type="submit" name="" value="Ingresar Nutriologo">
             <p><a href="#">¿Olvidaste tu Contraseña?</a></p>
           </form>
         </div>

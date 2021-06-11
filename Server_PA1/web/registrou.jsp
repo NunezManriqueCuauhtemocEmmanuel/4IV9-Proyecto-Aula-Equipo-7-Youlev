@@ -4,6 +4,10 @@
     Author     : adrai
 --%>
 
+<%@page import="Modelo.cTipo_diabetes"%>
+<%@page import="Modelo.cTipo_cancer"%>
+<%@page import="java.util.Vector"%>
+<%@page import="Modelo.MDatos_medicos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -98,8 +102,55 @@
             <input type="password" name="contrasena" placeholder="Contraseña" required>
             <br>
             <br>
-            <input class="buttons" type="submit" name="" value="Registrar">
           </div>
+          
+          <div class="overlay3" id="overlay3">
+    <div class="popup3" id="popup3">
+
+      <h3>Datos medicos</h3>
+      <div class="in-flex-1">
+        <form name="formulario" onsubmit="return validar(this)" action="">
+          <div class="contenedor-inputs">
+            <label id="titulo">Peso</label>
+            <input type="text" name="peso" placeholder="Peso" required>
+            <br>
+            <br>
+            <label id="titulo">Estatura</label>
+            <input type="text" name="estatura" placeholder="Estatura" 
+              required>
+            <br>
+            <br>
+            <label id="titulo">Diabetes</label>
+            <select name="diabetes" required>
+              <%
+                Vector<cTipo_diabetes> listaTipo_diabetes  = new cTipo_diabetes().listaTipo_diabetes();
+                
+                for(cTipo_diabetes Id_diab : listaTipo_diabetes){
+                    
+            %>
+            <option value="<%=Id_diab.getId_diab()%>"><%=Id_diab.getTipo_diab()%></option>
+            <%
+            }
+            %>
+            </select>
+            <br>
+            <br>
+            <label id="titulo">Cancer</label>
+            <select name="cancer" required>
+              <%
+                Vector<cTipo_cancer> listaTipo_cancer  = new cTipo_cancer().listaTipo_cancer();
+                
+                for(cTipo_cancer Id_can : listaTipo_cancer){
+                    
+            %>
+            <option value="<%=Id_can.getId_cancer()%>"><%=Id_can.getSitio_origen()%></option>
+            <%
+            }
+            %>
+            <br>
+            <br>
+            </select>
+            <input class="buttons" type="submit" name="" value="Registrar">
         </form>
       </div>
   </section>

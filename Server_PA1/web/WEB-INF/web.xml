@@ -12,6 +12,10 @@
         <servlet-name>iniciarSesion</servlet-name>
         <servlet-class>Vista.iniciarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>iniciarSesionN</servlet-name>
+        <servlet-class>Vista.iniciarSesionN</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registrarUsu</servlet-name>
         <url-pattern>/registrarUsu</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>iniciarSesion</servlet-name>
         <url-pattern>/iniciarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>iniciarSesionN</servlet-name>
+        <url-pattern>/iniciarSesionN</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

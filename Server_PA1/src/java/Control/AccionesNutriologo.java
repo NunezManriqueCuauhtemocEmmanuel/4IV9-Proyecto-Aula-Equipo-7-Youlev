@@ -94,7 +94,7 @@ public class AccionesNutriologo {
         return objNutri;
     }
     
-    public Nutriologo verificarUsuario(String usu, String pass) throws ClassNotFoundException{
+    public Nutriologo verificarNutriologo(String usu, String pass) throws ClassNotFoundException{
         Nutriologo objNutri = null;
         Connection con = null;
         PreparedStatement ps = null;

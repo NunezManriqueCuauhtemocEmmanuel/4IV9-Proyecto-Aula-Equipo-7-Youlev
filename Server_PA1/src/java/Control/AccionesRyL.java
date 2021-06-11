@@ -5,6 +5,7 @@
  */
 package Control;
 
+import Modelo.MDatos_medicos;
 import Modelo.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -118,7 +119,6 @@ public class AccionesRyL {
                 objUsu.setFN(rs.getString("fecha_nacimiento"));
                 break;
             }
-            System.out.println("D");
         }catch(SQLException sq){
             System.out.println("Error al verificar al usuario");
             System.out.println(sq.getMessage());
@@ -137,4 +137,33 @@ public class AccionesRyL {
         }
         return objUsu;
     }
+    
+    public static int registrarMDatos_medicos(MDatos_medicos datm){
+        int estatus = 0;
+        try{
+            Connection con = Conexion.getConection();
+            String q = "insert into mdatos_medicos(id_usu,id_diabetes,id_cancer,peso,estatura) "
+                    + "values(?,?,?,?,?)";
+            
+            PreparedStatement ps = con.prepareStatement(q);
+            
+            ps.setString(1, String.valueOf(datm.getId_usu()));
+            ps.setString(2, String.valueOf(datm.getId_diab()));
+            ps.setString(3, String.valueOf(datm.getId_can()));
+            ps.setString(4, String.valueOf(datm.getPeso()));
+            ps.setString(5, String.valueOf(datm.getEstatura()));
+           
+            estatus = ps.executeUpdate();
+            System.out.println("Registro de usuario exitoso");
+            con.close();
+        }catch(Exception ed){
+            System.out.println("Error al registar al usuario");
+            System.out.println(ed.getMessage());
+        
+        }
+        return estatus;
+        
+    }
+    
+   
 }
