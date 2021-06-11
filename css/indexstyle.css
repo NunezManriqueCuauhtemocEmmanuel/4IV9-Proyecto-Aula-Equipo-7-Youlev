@@ -3,6 +3,7 @@
     --blue: rgb(17, 38, 83);
     --bluel:rgb(90, 128, 211);
     --gradient:linear-gradient(90deg, purple, var(--bluel));
+    --facebook:linear-gradient
 }
 
 *{
@@ -378,6 +379,91 @@ header label{
     font-size: 1.5rem;
     color: rgb(12, 30, 70);
 }
+
+.footer{
+    padding-top: 3rem;
+    background: rgb(41, 86, 184) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer .box-container .box{
+    flex: 1 1 25rem;
+    padding: 1rem 0;
+    color: rgb(255, 255, 255);
+}
+.footer .box-container .box h3{
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 1rem 0;
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+}
+.footer .box-container .box p{
+    text-align: center;
+    font-size: 1.3rem;
+    padding:1rem;
+    color: rgb(238, 238, 238);
+    transition: .3s linear;
+}
+.footer .box-container .box ul li{
+    list-style: none;
+    text-align: center;
+    font-size: 1.5rem;
+    padding:2rem 0;
+    color: rgb(238, 238, 238);
+}
+.footer .box-container .box p:hover{
+    text-decoration: underline;
+    transition: .3s linear;
+}
+.footer .box-container .box .info{
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+}
+.footer .box-container .box .info i{
+    margin: 5rem;
+    margin-right: 1rem;
+    border-radius: 50%;
+}
+.fa-facebook-square{
+    text-align: center;
+    border-radius: 10%;
+    color: white;
+}
+.fa-facebook-square:hover{
+    cursor: pointer;
+    color: rgb(75, 134, 211);
+    transform: translateY(-6px);
+    animation: shadow-pulsefa 1000ms 1;
+}
+.fa-instagram-square {
+    text-align: center;
+    border-radius: 10%;
+    color: white
+}
+.fa-instagram-square:hover{
+    cursor: pointer;
+    color: rgb(171, 107, 223);
+    transform: translateY(-6px);
+    animation: rotate 1000ms 1;
+}
+
+.fa-twitter-square{
+    border-radius: 10%;
+    color:white;
+    text-align: center;
+}.fa-twitter-square:hover{
+    cursor: pointer;
+    color: rgb(71, 181, 255);
+    transform: translateY(-6px);
+    animation: shadow-pulset 1000ms 1;
+}
 @keyframes float{
     0%, 100%{
     transform: translateY(0rem);
@@ -394,6 +480,97 @@ header label{
         box-shadow: 0 0 16px 24px rgba(18, 52, 130, 0.247);
     }
 }
+
+@keyframes shadow-pulse {
+    0%{
+        box-shadow: 0 0 0 0 rgba(189, 151, 238, 0.6);
+    }
+    100%{
+        box-shadow: 0 0 16px 24px rgba(57, 132, 182, 0);
+    }
+}
+@keyframes shadow-pulseboton {
+    0%{
+        box-shadow: 0 0 0 0 rgba(16, 24, 43, 0.6);
+    }
+    100%{
+        box-shadow: 0 0 24px 32px rgba(89, 0, 255, 0.1);
+    }
+}
+@keyframes shadow-pl {
+    0%{
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.6);
+    }
+    100%{
+        box-shadow: 0 0 24px 32px rgba(57, 132, 182, 0);
+    }
+}
+@keyframes shadow-pulsefa {
+    0%{
+        box-shadow: 0 0 0 0 rgba(71, 165, 219, 0.9);
+    }
+    100%{
+        box-shadow: 0 0 16px 24px rgba(57, 132, 182, 0);
+    }
+}
+@keyframes shadow-pulsec {
+    0%{
+        box-shadow: 0 0 0 0 rgba(219, 71, 71, 0.9);
+    }
+    100%{
+        box-shadow: 0 0 16px 24px rgba(57, 132, 182, 0);
+    }
+}
+@keyframes shadow-pulset {
+    0%{
+        box-shadow: 0 0 0 0 rgba(71, 181, 255, 0.9);
+    }
+    100%{
+        box-shadow: 0 0 16px 24px rgba(57, 132, 182, 0);
+    }
+}
+@keyframes rotate {
+    0%{
+        filter: hue-rotate(0deg);
+        box-shadow: 0 0 0 0 rgba(171, 107, 223, 0.9);  
+    }
+    100%{
+        filter: hue-rotate(360deg);
+        box-shadow: 0 0 16px 24px rgba(57, 132, 182, 0);
+
+    }
+}
+@keyframes rotatel{
+    0%{
+        filter: hue-rotate(0deg);
+        color:#208be2 
+    }
+    100%{
+        filter: hue-rotate(360deg);
+        bcolor:#208be2
+
+    }
+}
+@keyframes color{
+
+}
+@keyframes zoom{
+    0%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(3.0);
+    }
+}
+@keyframes zoom2{
+    0%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(2);
+    }
+}
+
 @media (max-width:1200px){
     html{
         font-size: 55%;
